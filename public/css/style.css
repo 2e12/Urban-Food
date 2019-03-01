@@ -34,6 +34,7 @@ body {
 
 #content {
     position: relative;
+    top:70px;
 }
 
 #menu {
@@ -45,6 +46,8 @@ body {
     max-width: 1080px;
     z-index: 3;
     padding: 40px;
+    box-sizing: border-box;
+    display: none;
 }
 
 #menu ul{
