@@ -1,15 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: bzehni
- * Date: 01.03.2019
- * Time: 13:38
- */
-
 namespace App\Controller;
 
 
 class PageNotFoundController
 {
-
+    public function index() {
+        echo "<h1>Error 404</h1><br><h2>Page not found</h2><br><img src='../../public/img/PageNotFoundSmiley.JPG'>";
+    }
 }
