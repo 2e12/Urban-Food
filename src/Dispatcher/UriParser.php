@@ -11,12 +11,11 @@ class UriParser
     {
 		$uriFragments = self::getUriFragments();
 		// TODO: Methode um den "Controller"-Teil der URI zurückzugeben
-        
         // http://my-project.local/default/index    ->      "default"
         // http://my-project.local/user/create      ->      "user"
         // http://my-project.local                  ->      "default"
                 
-        return 'Default';
+        return $uriFragments[0];
     }
 
     /**
@@ -26,12 +25,11 @@ class UriParser
     {
 		$uriFragments = self::getUriFragments();
 		// TODO: Methode um den "Action"-Teil der URI zurückzugeben
-        
         // http://my-project.local/default/index    ->      "index"
         // http://my-project.local/user/create      ->      "create"
         // http://my-project.local                  ->      "index"
         
-        return 'index';
+        return $uriFragments[1];
     }
 
     private static function getUriFragments()
