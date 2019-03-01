@@ -1,55 +1,122 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-body{
+
+body {
     font-family: 'IBM Plex Sans Condensed', sans-serif;
     margin: 0;
-    font-size:18px;
+    font-size: 18px;
     box-sizing: border-box;
-    height:100%;
+    height: 100%;
 }
-.wrapper{
-    max-width:1080px;
-    width:100%;
-    margin:0 auto;
+
+.upset {
+    vertical-align: 15%;
+    font-size: 75%;
 }
-#header{
-    background:#57d319;
-    height:70px;
-    color:#282828;
+
+.wrapper {
+    max-width: 1080px;
+    width: 100%;
+    margin: 0 auto;
 }
-#header #navigation{
+
+#header {
+    background: #57d319;
+    height: 70px;
+    color: #282828;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+    z-index:5;
+    position: fixed;
+    width: 100%;
+}
+
+#content {
+    position: relative;
+}
+
+#menu {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #EDEDED;
+    top: 70px;
+    max-width: 1080px;
+    z-index: 3;
+    padding: 40px;
+}
+
+#menu ul{
+    list-style: none;
+}
+#menu a:hover{
+    color:#343e3d;
+}
+#menu a{
+    display: block;
+    margin-top: 20px;
+    font-size:28px;
+    text-decoration: none;
+    color:#607466;
+    margin-left: 12px;
+    padding:8px;
+    cursor: pointer;
+}
+#menu h2{
+    font-weight: 400;
+    font-size: 32px;
+}
+
+#header #navigation {
     display: flex;
     line-height: 70px;
-    font-weight:500;
+    font-weight: 500;
     text-transform: uppercase;
 }
-#header #navigation .button{
-    width:70px;
+
+#header #navigation .menubutton {
+    padding: 20px;
+    cursor: pointer;
+}
+
+#header #navigation .menubutton div {
+    width: 30px;
+    height: 2px;
+    margin-top: 6px;
+    background: #282828;
+}
+
+#header #navigation .button {
+    width: 70px;
     text-align: center;
     cursor: pointer;
     font-size: 22px;
 }
-#header #navigation .button:hover{
-    background: rgba(255,255,255,0.2);
+
+#header #navigation .button:hover, #header #navigation .menubutton:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
-#header #navigation #apptitle{
+
+#header #navigation #apptitle {
     flex-grow: 1;
     text-align: center;
 
 }
-#subheader{
-    background:#282828;
+
+#subheader {
+    background: #282828;
     overflow: auto;
 }
-#subheader .wrapper{
+
+#subheader .wrapper {
     display: flex;
 }
-#subheader .button{
+
+#subheader .button {
     flex-grow: 1;
     display: inline-block;
-    margin:8px;
+    margin: 8px;
     padding: 5px;
     margin-left: 5px;
     margin-right: 5px;
@@ -59,44 +126,80 @@ body{
     min-width: 100px;
     border-radius: 10px;
 }
-#subheader .button:hover{
-    background: rgba(255,255,255,0.2);
+
+#subheader .button:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 
-h1{
+h1 {
     text-transform: uppercase;
     font-weight: 500;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
-p{
+
+p {
 
     font-family: 'IBM Plex Sans', sans-serif;
 }
-.content{
-    background:#EDEDED;
+
+.content {
+    background: #EDEDED;
     text-align: justify;
-    padding:40px;
+    padding: 40px;
     font-weight: 400;
     line-height: 28px;
 }
 
-.horizontalScroll{
-    height: 320px;
+.horizontalScroll {
     overflow: auto;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
-.product{
+.product {
+    padding: 20px;
+    box-sizing: border-box;
+    color: white;
     margin: 40px;
-    width: 180px;
-    height: 220px;
-    box-shadow: 0px 3px 7px 0px rgba(0,0,0,0.3);
+    flex-grow: 1;
+    min-width: 260px;
+    height: 320px;
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     cursor: pointer;
     display: inline-block;
-    background: url("https://s3.amazonaws.com/profile_photos/1111941652901124.yP12cTWAQParZTtFVB5X_height640.png?x-amz-security-token=FQoGZXIvYXdzEOP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDHOaQ48xmPaQYt4CaCK3A1WtyYjye%2BEPUaAZiFFObSYG6UgrCfdeBpi%2FvDGlWAH%2BcXjo7hRvvKy%2B%2BgmooolKdZSrMKqpv4W4ffhuS8qgUxnx7GQo2H99RaKAnLmBFYs%2B%2BLlxqBHfz9ApVRzLM9wOciU%2B8OT21jfsPCfAF9EutFZLA6OqmSFvnZ0BNWZjhiiOoBMg%2BvmhsrkcwdirQhhwIiDeGNWJdchLmkcBGCdNbFmLU3HMJpEPOU%2Fkpn2FZG10BZASvzntzvi1ygxntWGeWWHRwABAQJ2wdswaq5BAp%2FhrgGL2%2FNkHqXQZy8ifA19%2F3a1vnkTpRlpNxssrGgNs5hZUE2OPBxtoAJqRTbfUxszf3IiX%2F9FIyuQKKQzUJPL5L7%2BoIkZ0p6nYFghqGXVmtb88oXqZbv70HB3csNK3s0ExXL1SZKx%2B2e3mhCt0JygskXFaoHobM1WtlUlsrScCbX3ta4iCGEEQzQrSp27g2fmfIfanyIAsOMqFL5imb8qZOPDcq%2Fdat%2BrsqV4Nal3uOqhtnPCtxeU4RErnUuX3SgsFLa61gZE%2FhHblZtrEFa7%2Fx%2FhbV7Za5brM7xaUqbx109fxYrAsJj0o7t3e4wU%3D&AWSAccessKeyId=ASIAV34L4ZY4CXY6SFPE&Expires=1551352840&Signature=SfLr3glW33AydAlIzw64H%2FCceCo%3D#_=_");
-    background-position-x: 0%;
-    background-position-y: 0%;
-    background-size: auto;
+    background: url("https://mein.hofer.at/medias/RZP-R-Hofer-Burger-mit-Grillgemuese-und-Kartoffel-Wedges-RZ016945-RecipeImage-647x465?context=bWFzdGVyfGltYWdlc3w0NTc1MDl8aW1hZ2UvcG5nfGltYWdlcy9oMmMvaDViLzg5NDczMjAzNTY4OTQucG5nfGExOWE4OGMzZDlhNzczMzlmYWU0MTliMjIxOTk4ZjdhMzU2NzgyNDhlMjFkNzI5OGNhYjI5MTI0ODhkNTg5ZmE");
     background-size: cover;
     background-position: center;
+    position: relative;
+}
+
+.product .top {
+    font-weight: bold;
+    font-size: 28px;
+    position: absolute;
+}
+
+.product .bottom {
+    font-weight: bold;
+    font-size: 28px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 5px;
+    background: #57d319;
+    border-radius: 4px;
+}
+
+.product {
+    position: relative;
+    font-size: 24px;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);
+    transition: 0.1s;
+    bottom: 0px;
+}
+
+.product:hover {
+    bottom: 6px;
 }
