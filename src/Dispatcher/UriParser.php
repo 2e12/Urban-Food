@@ -14,8 +14,13 @@ class UriParser
         // http://my-project.local/default/index    ->      "default"
         // http://my-project.local/user/create      ->      "user"
         // http://my-project.local                  ->      "default"
-                
-        return $uriFragments[0];
+
+        if (isset($uriFragments[0])) {
+            return strtolower($uriFragments[0]);
+        }
+        else {
+            return 'index';
+        }
     }
 
     /**
@@ -28,8 +33,13 @@ class UriParser
         // http://my-project.local/default/index    ->      "index"
         // http://my-project.local/user/create      ->      "create"
         // http://my-project.local                  ->      "index"
-        
-        return $uriFragments[1];
+
+        if (isset($uriFragments[1])) {
+            return strtolower($uriFragments[1]);
+        }
+        else {
+            return 'create';
+        }
     }
 
     private static function getUriFragments()
