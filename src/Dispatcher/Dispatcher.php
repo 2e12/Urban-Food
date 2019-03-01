@@ -37,7 +37,6 @@ class Dispatcher
         // Eine neue Instanz des Controllers wird erstellt und die gewünschte
         // Methode darauf aufgerufen.
         $controller = new $className();
-
         require "../template/header.php";
         $controller->$methodName();
         require "../template/nav.php";
