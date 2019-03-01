@@ -37,6 +37,6 @@ class DefaultController
     {
         // Für den Moment wird dem Benutzer ein ganz einfaches "Hallo Welt" ohne
         // irgendein HTML Markup ausgegeben.
-        echo 'Hallo Welt';
+
     }
 }
