@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Dispatcher;
+use App\View\View;
 
 /**
  * Der Dispatcher ist dafür zuständig, alle Requests an den entsprechenden
@@ -37,9 +38,9 @@ class Dispatcher
         // Eine neue Instanz des Controllers wird erstellt und die gewünschte
         // Methode darauf aufgerufen.
         $controller = new $className();
-        require "../template/header.php";
+        $view = new View( strtolower(UriParser::getControllerName()) . "/" . $methodName);
+        $view->display();
         $controller->$methodName();
-        require "../template/nav.php";
-        require "../template/footer.php";
+
     }
 }
