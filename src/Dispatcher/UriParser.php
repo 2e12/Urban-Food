@@ -15,11 +15,11 @@ class UriParser
         // http://my-project.local/user/create      ->      "user"
         // http://my-project.local                  ->      "default"
 
-        if (isset($uriFragments[0])) {
-            return strtolower($uriFragments[0]);
+        if (!empty($uriFragments[0])) {
+            return ucfirst($uriFragments[0]);
         }
         else {
-            return 'index';
+            return 'Default';
         }
     }
 
@@ -34,11 +34,11 @@ class UriParser
         // http://my-project.local/user/create      ->      "create"
         // http://my-project.local                  ->      "index"
 
-        if (isset($uriFragments[1])) {
-            return strtolower($uriFragments[1]);
+        if (!empty($uriFragments[1])) {
+            return $uriFragments[1];
         }
         else {
-            return 'create';
+            return 'index';
         }
     }
 
