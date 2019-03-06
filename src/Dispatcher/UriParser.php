@@ -15,7 +15,6 @@ class UriParser
         // http://my-project.local/user/create      ->      "User"
         // http://my-project.local                  ->      "Default"
 
-        echo ucfirst($uriFragments[0]).'Controller<br>';
         if (isset($uriFragments[0]) && 'App\\Controller\\' . class_exists(ucfirst($uriFragments[0]).'Controller')) {
             return ucfirst($uriFragments[0]);
         }
