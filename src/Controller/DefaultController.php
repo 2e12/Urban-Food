@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\View\View;
+
 /**
  * Der Controller ist der Ort an dem es für jede Seite, welche der Benutzer
  * anfordern kann eine Methode gibt, welche die dazugehörende Businesslogik
@@ -33,10 +35,9 @@ class DefaultController
      * welcher Controller und welche Methode aufgerufen wird, ist im Dispatcher
      * beschrieben.
      */
-    public function index()
-    {
-        // Für den Moment wird dem Benutzer ein ganz einfaches "Hallo Welt" ohne
-        // irgendein HTML Markup ausgegeben.
-
+    public function index() : void {
+        $view = new View('default/index');
+        $view->title = 'Home';
+        $view->display();
     }
 }
