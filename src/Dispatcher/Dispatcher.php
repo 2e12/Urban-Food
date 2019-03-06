@@ -37,10 +37,8 @@ class Dispatcher
 
         // Eine neue Instanz des Controllers wird erstellt und die gewünschte
         // Methode darauf aufgerufen.
-        $view = new View( UriParser::getControllerName() . "/" . $methodName);
-        $controller = new $className($view);
+        $controller = new $className();
         $controller->$methodName();
-        $view->display();
 
     }
 }
