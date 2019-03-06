@@ -153,6 +153,11 @@ p {
     line-height: 28px;
 }
 
+.content img{
+    max-width: 280px;
+    width: 100%;
+}
+
 .horizontalScroll {
     overflow: auto;
     display: flex;
