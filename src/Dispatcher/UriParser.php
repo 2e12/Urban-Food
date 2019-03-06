@@ -7,7 +7,7 @@ class UriParser
     /**
      * Diese Methode wertet die Request URI aus und gibt den Controllername zurück.
      */
-    public static function getControllerName()
+    public static function getControllerName() : string
     {
 		$uriFragments = self::getUriFragments();
 		// TODO: Methode um den "Controller"-Teil der URI zurückzugeben
@@ -29,7 +29,7 @@ class UriParser
     /**
      * Diese Methode wertet die Request URI aus und gibt den Actionname (Action = Methode im Controller) zurück.
      */
-    public static function getMethodName()
+    public static function getMethodName() : string
     {
 		$uriFragments = self::getUriFragments();
 		// TODO: Methode um den "Action"-Teil der URI zurückzugeben
@@ -38,14 +38,19 @@ class UriParser
         // http://my-project.local                  ->      "index"
 
         if (!empty($uriFragments[1])) {
-            return $uriFragments[1];
+            if (method_exists('App\\Controller\\'.self::getControllerName(), $uriFragments[1])) {
+                return $uriFragments[1];
+            }
+            else {
+                return 'index';
+            }
         }
         else {
             return 'index';
         }
     }
 
-    private static function getUriFragments()
+    private static function getUriFragments() : array
     {
         // Die URI wird aus dem $_SERVER Array ausgelesen und in ihre
         // Einzelteile zerlegt.
