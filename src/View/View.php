@@ -4,11 +4,11 @@ class View{
     private $properties = array();
     private $viewFile;
 
-    public function __construct($viewFile){
+    public function __construct($viewFile) {
         $this->viewFile = "../template/" . $viewFile . ".php";
     }
 
-    public function display() : void{
+    public function display() : void {
         require "../template/header.php";
         extract($this->properties);
 
@@ -18,7 +18,7 @@ class View{
         require "../template/footer.php";
     }
 
-    public function __set(string $key, string $value) : void{
+    public function __set(string $key, string $value) : void {
         if(!isset($this->properties[$key])){
             $this->properties[$key] = $value;
         }
