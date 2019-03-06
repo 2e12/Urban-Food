@@ -15,7 +15,7 @@ class UriParser
         // http://my-project.local/user/create      ->      "User"
         // http://my-project.local                  ->      "Default"
 
-        if (!empty($uriFragments[0]) && class_exists(ucfirst($uriFragments[0]).'Controller')) {
+        if (isset($uriFragments[0]) && 'App\\Controller\\' . class_exists(ucfirst($uriFragments[0]).'Controller')) {
             return ucfirst($uriFragments[0]);
         }
         elseif (empty($uriFragments[0])) {
@@ -39,7 +39,7 @@ class UriParser
         // http://my-project.local                  ->      "index"
 
         if (!empty($uriFragments[1])) {
-            if (method_exists('App\\Controller\\'.self::getControllerName(), $uriFragments[1])) {
+            if (method_exists(self::getControllerName(), $uriFragments[1])) {
                 return $uriFragments[1];
             }
             else {
