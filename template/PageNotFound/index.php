@@ -1,4 +1,4 @@
 <?php
     header("HTTP/1.0 404 Not Found");
-    echo $content;
+    echo '<div class="content">' . $content . '</div>';
 ?>
