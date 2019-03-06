@@ -4,7 +4,6 @@ use App\View\View;
 
 class PageNotFoundController
 {
-
     private $view;
     /**
      * PageNotFoundController constructor.
@@ -32,6 +31,7 @@ class PageNotFoundController
     }
 
     public function index() {
-        echo "<h1>Error 404</h1><br><h2>Page not found</h2><br><img src='../../public/img/PageNotFoundSmiley.JPG'>";
+        $view = $this->getView();
+        $view->content = "<h1>Error 404</h1><br><h2>Page not found</h2><br><img src='../../public/img/PageNotFoundSmiley.JPG' alt='error404'>";
     }
 }
