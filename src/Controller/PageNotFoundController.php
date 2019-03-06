@@ -32,6 +32,6 @@ class PageNotFoundController
 
     public function index() {
         $view = $this->getView();
-        $view->content = "<h1>Error 404</h1><br><h2>Page not found</h2><br><img src='../../public/img/PageNotFoundSmiley.JPG' alt='error404'>";
+        $view->content = "<h1>Error 404</h1><br><h2>Page not found</h2><br><img src='http://" . $_SERVER["SERVER_NAME"] . "./img/PageNotFoundSmiley.JPG' alt='error404'>";
     }
 }
