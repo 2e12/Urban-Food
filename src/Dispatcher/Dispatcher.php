@@ -11,7 +11,7 @@ use App\View\View;
  * Anfrage an die gewünschte Funktion im entsprechenden Controller weiter. Die
  * URI wird wie im folgenden Beispiel verarbeitet:
  *
- *   /user/delete?id=7&foo=bar
+ *   /User/delete?id=7&foo=bar
  *    |    |      └────┴─ GET Parameter stehen im Array $_GET zur Verfügung
  *    |    |
  *    |    └─ Der Wert nach dem zweiten Slash heisst so wie die Funktion, welche
@@ -29,7 +29,7 @@ class Dispatcher
      * Diese Methode wertet die Request URI aus leitet die Anfrage entsprechend
      * weiter.
      */
-    public static function dispatch()
+    public static function dispatch() : void
     {
         $controllerName = UriParser::getControllerName().'Controller';
         $className = 'App\\Controller\\'.$controllerName;
@@ -37,10 +37,10 @@ class Dispatcher
 
         // Eine neue Instanz des Controllers wird erstellt und die gewünschte
         // Methode darauf aufgerufen.
-        $controller = new $className();
-        $view = new View( strtolower(UriParser::getControllerName()) . "/" . $methodName);
-        $view->display();
+        $view = new View( UriParser::getControllerName() . "/" . $methodName);
+        $controller = new $className($view);
         $controller->$methodName();
+        $view->display();
 
     }
 }
