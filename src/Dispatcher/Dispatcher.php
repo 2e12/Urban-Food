@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Dispatcher;
-use App\View\View;
 
 /**
  * Der Dispatcher ist dafür zuständig, alle Requests an den entsprechenden
