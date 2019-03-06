@@ -26,6 +26,4 @@ class View{
     public function __get(string $key) : object {
         return $this->properties[$key];
     }
-
-
 }
