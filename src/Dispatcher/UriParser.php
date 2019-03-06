@@ -38,9 +38,7 @@ class UriParser
         // http://my-project.local                  ->      "index"
 
         if (!empty($uriFragments[1])) {
-            echo $uriFragments[1];
             if (method_exists(self::getControllerName(), $uriFragments[1])) {
-                echo "JE";
                 return $uriFragments[1];
             }
             else {
