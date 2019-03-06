@@ -2,36 +2,11 @@
 namespace App\Controller;
 use App\View\View;
 
-class PageNotFoundController
-{
-    private $view;
-    /**
-     * PageNotFoundController constructor.
-     * @param View  $view   The view
-     */
-    public function __construct(View $view)
-    {
-        $this->setView($view);
-    }
-
-    /**
-     * @return View
-     */
-    public function getView(): View
-    {
-        return $this->view;
-    }
-
-    /**
-     * @param View $view
-     */
-    public function setView(View $view): void
-    {
-        $this->view = $view;
-    }
-
-    public function index() {
-        $view = $this->getView();
-        $view->content = "<h1>Error 404</h1><br><h2>Page not found</h2><br><img src='http://" . $_SERVER["SERVER_NAME"] . "./img/PageNotFoundSmiley.png' alt='error404'>";
+class PageNotFoundController {
+        public function index() {
+        header('Location: PageNotFound');
+        $view = new View('PageNotFound/index');
+        $view->title = 'Seite nicht gefunden';
+        $view->display();
     }
 }
