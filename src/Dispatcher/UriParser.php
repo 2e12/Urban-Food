@@ -15,14 +15,13 @@ class UriParser
         // http://my-project.local/user/create      ->      "User"
         // http://my-project.local                  ->      "Default"
 
-        if (isset($uriFragments[0]) && 'App\\Controller\\' . class_exists(ucfirst($uriFragments[0]).'Controller')) {
+        if (isset($uriFragments[0]) && class_exists( 'App\\Controller\\' . ucfirst($uriFragments[0]) .'Controller')) {
             return ucfirst($uriFragments[0]);
         }
         elseif (empty($uriFragments[0])) {
             return 'Default';
         }
         else {
-            echo "Hallo Welt";
             return 'PageNotFound';
         }
     }
