@@ -11,9 +11,9 @@ class UriParser
     {
 		$uriFragments = self::getUriFragments();
 		// TODO: Methode um den "Controller"-Teil der URI zurückzugeben
-        // http://my-project.local/default/index    ->      "default"
-        // http://my-project.local/user/create      ->      "user"
-        // http://my-project.local                  ->      "default"
+        // http://my-project.local/default/index    ->      "Default"
+        // http://my-project.local/user/create      ->      "User"
+        // http://my-project.local                  ->      "Default"
 
         if (!empty($uriFragments[0]) && class_exists(ucfirst($uriFragments[0]).'Controller')) {
             return ucfirst($uriFragments[0]);
@@ -49,7 +49,7 @@ class UriParser
     {
         // Die URI wird aus dem $_SERVER Array ausgelesen und in ihre
         // Einzelteile zerlegt.
-        // /user/index/foo --> ['user', 'index', 'foo']
+        // /User/index/foo --> ['User', 'index', 'foo']
         $uri = $_SERVER['REQUEST_URI'];
         $uri = strtok($uri, '?'); // Erstes ? und alles danach abschneiden
         $uri = trim($uri, '/'); // Alle / am Anfang und am Ende der URI abschneiden
