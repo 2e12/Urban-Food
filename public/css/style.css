@@ -158,14 +158,14 @@ p {
     width: 100%;
 }
 
-.horizontalScroll {
+.container {
     overflow: auto;
     display: flex;
     width: 100%;
     flex-wrap: wrap;
 }
 
-.product {
+.product, .banner {
     padding: 20px;
     box-sizing: border-box;
     color: white;
@@ -178,9 +178,25 @@ p {
     cursor: pointer;
     display: inline-block;
     background: url("https://mein.hofer.at/medias/RZP-R-Hofer-Burger-mit-Grillgemuese-und-Kartoffel-Wedges-RZ016945-RecipeImage-647x465?context=bWFzdGVyfGltYWdlc3w0NTc1MDl8aW1hZ2UvcG5nfGltYWdlcy9oMmMvaDViLzg5NDczMjAzNTY4OTQucG5nfGExOWE4OGMzZDlhNzczMzlmYWU0MTliMjIxOTk4ZjdhMzU2NzgyNDhlMjFkNzI5OGNhYjI5MTI0ODhkNTg5ZmE");
-    background-size: cover;
-    background-position: center;
+    background-size: cover !important;
+    background-position: center !important;
     position: relative;
+}
+
+.banner {
+    margin:40px;
+    width: calc(100% - 2 * 40px); /* 40px = the margin from .banner (class above) */
+    min-width: unset;
+    background: url("/img/banner.jpg");
+    box-shadow: none;
+    text-align: center;
+    padding-top:90px;
+    color:#343e3d;
+    margin-bottom: 70px;
+}
+.banner h1{
+    font-size: 52px;
+    margin-bottom:5px;
 }
 
 .product .top {
