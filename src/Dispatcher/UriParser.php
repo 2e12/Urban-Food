@@ -22,6 +22,7 @@ class UriParser
             return 'Default';
         }
         else {
+            echo "Hallo Welt";
             return 'PageNotFound';
         }
     }

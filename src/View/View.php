@@ -3,6 +3,7 @@ namespace App\View;
 class View{
     private $properties = array();
     private $viewFile;
+
     public function __construct($viewFile){
         $this->viewFile = "../template/" . $viewFile . ".php";
     }

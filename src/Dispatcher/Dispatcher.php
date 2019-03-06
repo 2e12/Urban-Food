@@ -39,6 +39,5 @@ class Dispatcher
         // Methode darauf aufgerufen.
         $controller = new $className();
         $controller->$methodName();
-
     }
 }
