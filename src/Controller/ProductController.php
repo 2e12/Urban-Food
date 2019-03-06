@@ -1,7 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: bbeutg
- * Date: 01.03.2019
- * Time: 12:54
- */
+
+class ProductController
+{
+    public function index(): void
+    {
+        $view = new \App\View\View('Product/index');
+        $view->title = 'Products';
+        $view->display();
+    }
+}
