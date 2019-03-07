@@ -5,9 +5,9 @@ echo
     <div class="formlayout">
          <div class="formblock">
             <form method="post" action="">
-                <input name="emailadress" placeholder="deine Email-Adresse">
-                <input name="password" placeholder="dein Passwort">
-                <button type="submit">einloggen</button>
+                <input name="emailadress" placeholder="deine Email-Adresse" type="email">
+                <input name="password" placeholder="dein Passwort" type="password">
+                <div class="send"><input type="submit" placeholder="einloggen"></div>
             </form>
         </div>
         <div class="imageblock">
