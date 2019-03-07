@@ -29,6 +29,12 @@ class Authentication
         return false;
     }
 
+    public static function register(string $city, string $postalcode, string $street, string $email, string $firstname, string $lastname, string $password)
+    {
+        $users = new UserRepository();
+        $users->insert($city, $postalcode, $street, $email, $firstname, $lastname, $password);
+    }
+
     public static function logout(): void
     {
         // TODO: Mit unset die Session-Werte löschen

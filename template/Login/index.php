@@ -4,7 +4,7 @@ echo
     <h1>Login</h1>
     <div class="formlayout">
          <div class="formblock">
-            <form method="post" action="">
+            <form method="POST" action="Login/login">
                 <input name="emailadress" placeholder="deine Email-Adresse" type="email">
                 <input name="password" placeholder="dein Passwort" type="password">
                 <div class="send"><input type="submit" placeholder="einloggen"></div>
