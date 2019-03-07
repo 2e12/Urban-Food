@@ -165,7 +165,7 @@ p {
     flex-wrap: wrap;
 }
 
-.product, .banner {
+.product, .banner, .category {
     padding: 20px;
     box-sizing: border-box;
     color: white;
@@ -181,6 +181,21 @@ p {
     background-size: cover !important;
     background-position: center !important;
     position: relative;
+    transition: 0.1s;
+    bottom: 0px;
+    text-decoration: none;
+}
+
+.category {
+    height: unset;
+    font-weight: bold;
+    font-size: 28px;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);
+    text-align: center;
+}
+
+.category h2 {
+    font: inherit;
 }
 
 .banner {
@@ -217,13 +232,16 @@ p {
 }
 
 .product {
-    position: relative;
     font-size: 24px;
     text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);
-    transition: 0.1s;
-    bottom: 0px;
 }
 
-.product:hover {
+.product:hover, .category:hover {
     bottom: 6px;
+}
+
+h1.floated {
+    width: 100%;
+    margin: 0;
+    padding: 40px 40px 20px;
 }

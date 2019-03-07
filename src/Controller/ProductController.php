@@ -15,10 +15,6 @@ class ProductController
         $view->display();
     }
 
-    //public function category() : void{
-    //
-    //}
-
     public function get(): void
     {
         header('Content-Type: application/json');

@@ -18,7 +18,8 @@ class View{
         require "../template/footer.php";
     }
 
-    public function __set(string $key, string $value) : void {
+    public function __set(string $key, $value): void
+    {
         if(!isset($this->properties[$key])){
             $this->properties[$key] = $value;
         }
