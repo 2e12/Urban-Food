@@ -24,10 +24,18 @@ class ProductController
         header('Content-Type: application/json');
         $repository = new ProductRepository();
         if (isset($_GET["id"])) {
-            echo json_encode($repository->readById($_GET["id"]));
+            try {
+                echo json_encode($repository->readById($_GET["id"]));
+            } catch (\Exception $e) {
+                echo "null";
+            }
         }
         else {
-            echo json_encode($repository->readAll());
+            try {
+                echo json_encode($repository->readAll());
+            } catch (\Exception $e) {
+                echo "null";
+            }
         }
     }
 }
