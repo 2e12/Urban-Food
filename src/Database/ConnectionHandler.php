@@ -52,13 +52,13 @@ class ConnectionHandler
     {
         // Prüfen ob bereits eine Verbindung existiert
         if (null === self::$connection) {
-            $configFile = '../config.php';
+            $configFile = '../src/config.php';
 
             if (!file_exists($configFile)) {
                 throw new RuntimeException('Database config file not found');
             }
 
-            $config = require '../config.php';
+            $config = require $configFile;
             $host = $config['database']['host'];
             $username = $config['database']['username'];
             $password = $config['database']['password'];
