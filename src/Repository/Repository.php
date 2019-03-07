@@ -134,7 +134,7 @@ class Repository
      *
      * @return Ein array mit den gefundenen Datensätzen
      */
-    public function readAll($max = 100)
+    public function readAll(int $max = 100): array
     {
         $query = "SELECT * FROM {$this->tableName} LIMIT 0, $max";
 
