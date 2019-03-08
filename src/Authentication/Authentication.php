@@ -25,7 +25,6 @@ class Authentication
                 return true;
             }
         }
-
         return false;
     }
 
