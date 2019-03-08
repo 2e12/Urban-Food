@@ -1,9 +1,11 @@
 function toggleMenu(){
     $( "#menu" ).toggle();
+    $("#shoppingcart").hide();
 }
 
 function toggleShoppingCart() {
     $("#shoppingcart").toggle();
+    $("#menu").hide();
 }
 
 $(document).ready(function () {
