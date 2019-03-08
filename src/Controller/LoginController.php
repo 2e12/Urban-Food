@@ -18,8 +18,12 @@ class LoginController
     {
         if (isset($_POST['emailadress']) && isset($_POST['password']))
         {
-            Authentication::login($_POST['emailadress'], $_POST['password']);
-            header('Location: /User/index');
+            $loginstate = Authentication::login($_POST['emailadress'], $_POST['password']);
+            if ($loginstate == true) {
+                header('Location: /User/index');
+            } else {
+                header('Location: /User/wronginformations');
+            }
         }
     }
 }
