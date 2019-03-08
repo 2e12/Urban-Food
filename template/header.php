@@ -21,7 +21,9 @@
                 <div></div>
             </div>
             <div id="apptitle">Urban Food</div>
-            <div class="button" onclick="toggleShoppingCart()"><i class="fas fa-shopping-bag"></i></div>
+
+            <a class="button"><i class="fas fa-user"></i></a>
+            <a class="button" onclick="toggleShoppingCart()"><i class="fas fa-shopping-bag"></i></a>
         </div>
     </div>
 </div>
