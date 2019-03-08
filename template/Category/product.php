@@ -4,7 +4,7 @@
     foreach ($products as $product) {
         ?>
         <a data-background="<?php echo $product->image_path ?>"
-           href="/product/get/?id=<?php echo $product->id ?>" class="product">
+           data-product="/product/get/?id=<?php echo $product->id ?>" class="product">
             <div class="top"><?php
                 echo $product->name;
                 ?></div>
