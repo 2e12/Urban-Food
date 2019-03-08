@@ -23,5 +23,6 @@ class RegisterController
                 Authentication::register( $_POST['city'], $_POST['postalcode'], $_POST['street'], $_POST['emailadress'], $_POST['firstname'], $_POST['lastname'], $_POST['password']);
             }
         }
+        header('Location: /User/index');
     }
 }

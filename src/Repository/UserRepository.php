@@ -6,15 +6,14 @@ use App\Database\ConnectionHandler;
 
 class UserRepository extends Repository
 {
-    protected $tablename = 'user';
+    protected $tableName = 'users';
 
-    public function readByEmail(string $email)
+    public function readByEmail(string $textEmail)
     {
-        $query = "SELECT * FROM {$this->tableName} WHERE email=?";
+        $query = "SELECT * FROM {$this->tableName} WHERE email = ?";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param('s', $email);
-
+        $statement->bind_param('s', $textEmail);
         $statement->execute();
 
         $result = $statement->get_result();
@@ -32,11 +31,12 @@ class UserRepository extends Repository
     public function insert(string $city, string $postalcode, string $street, string $email, string $firstname, string $lastname, string $password)
     {
         $adressQuery = "INSERT INTO adress (city, postal_code, street) VALUES (?, ?, ?)";
-        $adressSelectQuery = "SELECT id FROM adress WHERE city = ? AND postal_code = ? AND street = ?";
+        $adressSelectQuery = "SELECT * FROM adress WHERE city = ? AND postal_code = ? AND street = ?";
 
         $adressStatement = ConnectionHandler::getConnection()->prepare($adressQuery);
         $adressStatement->bind_param('sss', $city, $postalcode, $street);
         $adressStatement->execute();
+        $adressStatement->close();
 
         $adressSelectStatement = ConnectionHandler::getConnection()->prepare($adressSelectQuery);
         $adressSelectStatement->bind_param('sss', $city, $postalcode, $street);
@@ -48,10 +48,14 @@ class UserRepository extends Repository
         $row = $result->fetch_object();
         $result->close();
 
-        $userQuery = "INSERT INTO {$this->tableName} (prename, lastname, password, email, adress_id, is_admin) VALUES (?, ?, ?, ?, ?, ?)";
+        $userQuery = "INSERT INTO users (prename, lastname, password, email, adress_id, is_admin) VALUES (?, ?, ?, ?, ?, false)";
 
         $userStatement = ConnectionHandler::getConnection()->prepare($userQuery);
-        $userStatement->bind_param('ssssii', $firstname, $lastname, hash('sha256', $password), $email, $row->id, 0);
+        $passwordhash = hash('sha256', $password);
+        $userStatement->bind_param('ssssi', $firstname, $lastname, $passwordhash, $email, $row->id);
         $userStatement->execute();
+        $userStatement->close();
+
+        $_SESSION['user'] = ConnectionHandler::getConnection()->insert_id;
     }
 }

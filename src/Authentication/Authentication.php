@@ -29,10 +29,10 @@ class Authentication
         return false;
     }
 
-    public static function register(string $city, string $postalcode, string $street, string $email, string $firstname, string $lastname, string $password)
+    public static function register(string $textCity, string $textPostalcode, string $textStreet, string $textEmail, string $textFirstname, string $textLastname, string $textPassword)
     {
         $users = new UserRepository();
-        $users->insert($city, $postalcode, $street, $email, $firstname, $lastname, $password);
+        $users->insert($textCity, $textPostalcode, $textStreet, $textEmail, $textFirstname, $textLastname, $textPassword);
     }
 
     public static function logout(): void
@@ -42,6 +42,22 @@ class Authentication
 
         // TODO: Session zerstören
         session_destroy();
+    }
+
+    public static function isAdmin($textEmail): bool {
+        $users = new UserRepository();
+        $user = $users->readByEmail($textEmail);
+
+        if ($user != null)
+        {
+            if ($user->is_admin == 0) {
+                return false;
+            } elseif ($user->is_admin == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 
     public static function isAuthenticated(): bool
@@ -55,14 +71,14 @@ class Authentication
         }
     }
 
-    public static function getAuthenticatedUser(): string
+    public static function getAuthenticatedUser()
     {
         // TODO: User anhand der ID aus der Session auslesen
         $users = new UserRepository();
         $user = $users->readById($_SESSION['user']);
 
         // TODO: User zurückgeben
-        return $user->email;
+        return $user;
     }
 
     public static function restrictAuthenticated(): void

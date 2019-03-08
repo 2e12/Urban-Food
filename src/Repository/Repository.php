@@ -102,7 +102,12 @@ class Repository
         // Datenbankverbindung anfordern und, das Query "preparen" (vorbereiten)
         // und die Parameter "binden"
         $statement = ConnectionHandler::getConnection()->prepare($query);
+        if (!$statement) {
+            throw new Exception(ConnectionHandler::getConnection()->error);
+        }
+
         $statement->bind_param('i', $id);
+
 
         // Das Statement absetzen
         $statement->execute();
