@@ -16,7 +16,8 @@
     <div class="row">
         <span id="pv_name">Loading</span>
         <p><span id="pv_description">Loading</span></p>
-        <span id="pv_price">Loading</span>
+        <p id="price">$<span id="pv_price">Loading</span></p>
+        <input type="submit" value="Buy">
     </div>
     <div class="load"></div>
 </div>
