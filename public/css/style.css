@@ -114,31 +114,8 @@ p {
 
 }
 
-#subheader {
-    background: #282828;
-    overflow: auto;
-}
+.linkbutton button{
 
-#subheader .wrapper {
-    display: flex;
-}
-
-#subheader .button {
-    flex-grow: 1;
-    display: inline-block;
-    margin: 8px;
-    padding: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
-    color: white;
-    cursor: pointer;
-    text-align: center;
-    min-width: 100px;
-    border-radius: 10px;
-}
-
-#subheader .button:hover {
-    background: rgba(255, 255, 255, 0.2);
 }
 
 h1 {
