@@ -105,6 +105,7 @@ $(document).ready(function () {
                         $('#pv_buy').off("click"); //Remove all click events, befor setting a new one
                         $('#pv_buy').click(function () {
                             addToCart(data);
+                            renderCart();
                         });
                         $('#pv_image').attr("src", data.image_path);
                         $('#product_overview > .load').hide();
