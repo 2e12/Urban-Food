@@ -101,6 +101,7 @@ $(document).ready(function () {
         }
         if ($(this).attr("data-product") !== undefined) {
             $(this).click(function () {
+                $('#pv_buy').attr("value", "Buy");
                 $('#product_overview > .row').hide();
                 $('#black_overlay').show();
                 $('#product_overview > .load').show();
