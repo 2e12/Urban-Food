@@ -102,6 +102,7 @@ p {
     text-align: center;
     cursor: pointer;
     font-size: 22px;
+    color: inherit;
 }
 
 #header #navigation .button:hover, #header #navigation .menubutton:hover {
@@ -354,6 +355,8 @@ h1.floated {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     color: white;
+    max-height: 80vh;
+    overflow: auto;
 }
 
 #shoppingcart {
@@ -364,6 +367,19 @@ h1.floated {
     border-radius: 0 0 20px 20px;
 }
 
+#product_overview input {
+    display: block;
+    width: 100%;
+    font-size: inherit;
+    color: white;
+    background: #57d319;
+    border: none;
+    padding: 15px;
+    border-radius: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.2);
+}
 #product_overview .row {
     flex-grow: 1;
     width: 100%;
@@ -376,6 +392,11 @@ h1.floated {
     min-height: 80px;
 }
 
+#product_overview #price {
+    font-size: 24px;
+    text-align: right;
+    margin-top: 20px;
+}
 #product_overview #pv_name {
     font-weight: bold;
     font-size: 24px;
@@ -393,6 +414,42 @@ h1.floated {
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     animation-name: rotate;
+}
+
+#product_cart .line {
+    display: flex;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#product_cart .line div {
+    flex-grow: 1;
+}
+
+#product_cart .line div input {
+    padding: 5px;
+    border-radius: 4px;
+    border: none;
+    max-width: 50px;
+}
+
+#product_cart .line .pc_price {
+    max-width: 100px;
+    text-align: right;
+}
+
+#product_cart .line .pc_delete {
+    text-align: right;
+    max-width: 45px;
+    cursor: pointer;
+}
+
+#product_cart .line .pc_quantity {
+    max-width: 100px;
+}
+
+#product_cart #template {
+    display: none;
 }
 
 @keyframes rotate {
