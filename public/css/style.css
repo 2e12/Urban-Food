@@ -171,6 +171,22 @@ p {
     text-decoration: none;
 }
 
+.linkbutton {
+    display: inline-block;
+    font-size: inherit;
+    color: white;
+    background: #57d319;
+    border: none;
+    padding: 8px;
+    border-radius: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.2);
+    min-width: 140px;
+    text-align: center;
+    text-decoration: none;
+}
+
 .category {
     height: unset;
     font-weight: bold;
