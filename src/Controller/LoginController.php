@@ -9,9 +9,16 @@ class LoginController
 {
     public function index(): void
     {
-        $view = new View('Login/index');
-        $view->title = 'Login';
-        $view->display();
+        if (isset($_SESSION['user'])) {
+            $view = new View('User/loggedin');
+            $view->title = 'Already logged in';
+            $view->display();
+        }
+        else {
+            $view = new View('Login/index');
+            $view->title = 'Login';
+            $view->display();
+        }
     }
 
     public function login(): void

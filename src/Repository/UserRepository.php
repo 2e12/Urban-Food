@@ -18,7 +18,7 @@ class UserRepository extends Repository
 
         $result = $statement->get_result();
         if (!$result) {
-            throw new Exception($statement->error);
+            return null;
         }
 
         $row = $result->fetch_object();

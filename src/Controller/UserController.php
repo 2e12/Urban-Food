@@ -8,9 +8,17 @@ use App\View\View;
 class UserController
 {
     public function index(): void {
-        $view = new View('User/index');
-        $view->title = 'User';
-        $view->display();
+
+        if (isset($_SESSION['user'])) {
+            $view = new View('User/index');
+            $view->title = 'User';
+            $view->display();
+        }
+        else {
+            $view = new View('User/loggedout');
+            $view->title = 'Login';
+            $view->display();
+        }
     }
 
     public function logout(): void {
@@ -22,7 +30,7 @@ class UserController
 
     public function wronginformations() {
         $view = new View('user/wronginformations');
-        $view->titlw = 'Wring Informations';
+        $view->title = 'Wring Informations';
         $view->display();
     }
 }
