@@ -119,6 +119,30 @@ p {
 
 }
 
+.grant {
+    display: inline-block;
+    position: fixed;
+    top: 100px;
+    width: 40%;
+}
+
+.grant form {
+    width: 100%;
+}
+
+.users {
+    display: flex;
+    margin-left: 45%;
+}
+
+.users table {
+    margin-left: 25px;
+}
+
+.users th, td {
+    padding: 8px;
+}
+
 h1 {
     text-transform: uppercase;
     font-weight: 500;
@@ -136,6 +160,7 @@ p {
     padding: 40px;
     font-weight: 400;
     line-height: 28px;
+    min-height: 440px;
 }
 
 .content img {

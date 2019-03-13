@@ -15,6 +15,12 @@ class ProductController
         $view->display();
     }
 
+    public function create(): void {
+        $view = new View('Product/create');
+        $view->title = 'Create new product';
+        $view->display();
+    }
+
     public function get(): void
     {
         header('Content-Type: application/json');

@@ -20,9 +20,20 @@ class RegisterController
         {
             if ($_POST['password'] == $_POST['repeatedpassword'])
             {
-                Authentication::register( $_POST['city'], $_POST['postalcode'], $_POST['street'], $_POST['emailadress'], $_POST['firstname'], $_POST['lastname'], $_POST['password']);
+                Authentication::register( $_POST['city'], $_POST['postalcode'], $_POST['street'], $_POST['emailadress'], $_POST['firstname'], $_POST['lastname'], $_POST['password'], false);
                 Authentication::login($_POST['emailadress'], $_POST['password']);
                 header('Location: /User/index');
+            }
+        }
+    }
+
+    public function create() {
+        if (isset($_POST['emailadress']) && isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['city']) && isset($_POST['postalcode']) && isset($_POST['street']) && isset($_POST['password']) && isset($_POST['repeatedpassword']))
+        {
+            if ($_POST['password'] == $_POST['repeatedpassword'])
+            {
+                Authentication::register( $_POST['city'], $_POST['postalcode'], $_POST['street'], $_POST['emailadress'], $_POST['firstname'], $_POST['lastname'], $_POST['password'], true);
+                header('Location: /User/create');
             }
         }
     }

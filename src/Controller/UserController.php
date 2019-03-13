@@ -46,6 +46,7 @@ class UserController
                 $users->deleteById($user->id);
             }
         }
+        header('Location: /User/grant');
     }
 
     public function logout(): void {

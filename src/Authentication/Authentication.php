@@ -28,10 +28,10 @@ class Authentication
         return false;
     }
 
-    public static function register(string $textCity, string $textPostalcode, string $textStreet, string $textEmail, string $textFirstname, string $textLastname, string $textPassword)
+    public static function register(string $textCity, string $textPostalcode, string $textStreet, string $textEmail, string $textFirstname, string $textLastname, string $textPassword, bool $textFast)
     {
         $users = new UserRepository();
-        $users->insert($textCity, $textPostalcode, $textStreet, $textEmail, $textFirstname, $textLastname, $textPassword);
+        $users->insert($textCity, $textPostalcode, $textStreet, $textEmail, $textFirstname, $textLastname, $textPassword, $textFast);
     }
 
     public static function logout(): void

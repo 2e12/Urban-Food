@@ -28,7 +28,7 @@ class UserRepository extends Repository
         return $row;
     }
 
-    public function insert(string $city, string $postalcode, string $street, string $email, string $firstname, string $lastname, string $password)
+    public function insert(string $city, string $postalcode, string $street, string $email, string $firstname, string $lastname, string $password, bool $fast)
     {
         $adressQuery = "INSERT INTO adress (city, postal_code, street) VALUES (?, ?, ?)";
         $adressSelectQuery = "SELECT * FROM adress WHERE city = ? AND postal_code = ? AND street = ?";
@@ -56,7 +56,9 @@ class UserRepository extends Repository
         $userStatement->execute();
         $userStatement->close();
 
-        $_SESSION['user'] = ConnectionHandler::getConnection()->insert_id;
+        if ($fast == false) {
+            $_SESSION['user'] = ConnectionHandler::getConnection()->insert_id;
+        }
     }
 
     public function grantPerm(string $userEmail, string $perm): void {
