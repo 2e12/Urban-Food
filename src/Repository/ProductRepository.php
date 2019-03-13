@@ -7,7 +7,7 @@ use App\Database\ConnectionHandler;
 
 class ProductRepository extends Repository
 {
-    protected $tableName = 'Product';
+    protected $tableName = 'product';
 
     function readByCategoryId($id)
     {
@@ -38,4 +38,35 @@ class ProductRepository extends Repository
         // Datenbankressourcen wieder freigeben
     }
 
+    function insert(string $textName, $textPrice, string $textDesc, string $textPath, string $textCatId): void {
+        $insertQuery = "INSERT INTO {$this->tableName} (`name`,price,description,image_path,category_id) VALUES (?,?,?,?,?)";
+        $insertStatement = ConnectionHandler::getConnection()->prepare($insertQuery);
+        $price = doubleval($textPrice);
+        switch ($textCatId) {
+            case '0':
+                $catName = 'sandwich/';
+                break;
+            case '1':
+                $catName = 'burger/';
+                break;
+            case '2':
+                $catName = 'snack/';
+                break;
+            case '3':
+                $catName = 'drink/';
+                break;
+            case '4':
+                $catName = 'asia/';
+                break;
+            default:
+                $catName = null;
+                break;
+        }
+        $cId = intval($textCatId);
+        $prefix = '/img/upload/'.$catName;
+        $path = $prefix.$textPath;
+        $insertStatement->bind_param('sdssi', $textName, $price, $textDesc, $path, $cId);
+        $insertStatement->execute();
+        $insertStatement->close();
+    }
 }

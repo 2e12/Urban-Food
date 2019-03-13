@@ -21,6 +21,14 @@ class ProductController
         $view->display();
     }
 
+    public function createProduct(): void {
+        $repository = new ProductRepository();
+        if (isset($_POST['productName']) && isset($_POST['productPrice']) && isset($_POST['productDesc']) && isset($_POST['productPath']) && isset($_POST['productCategory'])) {
+            $repository->insert($_POST['productName'], $_POST['productPrice'], $_POST['productDesc'], $_POST['productPath'], $_POST['productCategory'],);
+        }
+        header('Location: /Product/create');
+    }
+
     public function get(): void
     {
         header('Content-Type: application/json');
