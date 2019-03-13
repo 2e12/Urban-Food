@@ -22,7 +22,13 @@
             </div>
             <div id="apptitle">Urban Food</div>
 
-            <a class="button" href="/User/index"><i class="fas fa-user"></i></a>
+            <?php
+            if (isset($_SESSION["user"])) {
+                ?>
+                <a class="button" href="/User/index"><i class="fas fa-user"></i></a>
+                <?php
+            }
+            ?>
             <a class="button" onclick="toggleShoppingCart()"><i class="fas fa-shopping-bag"></i></a>
         </div>
     </div>
