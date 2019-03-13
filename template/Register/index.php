@@ -13,7 +13,7 @@ echo
                 <input name="street" placeholder="Strasse">
                 <input name="password" placeholder="dein Passwort" type="password">
                 <input name="repeatedpassword" placeholder="wiederhole dein Passwort" type="password">
-                <div class="send"><input type="submit" placeholder="registrieren"></div>
+                <div class="send"><input type="submit"></div>
             </form>    
         </div>
         <div class="imageblock">

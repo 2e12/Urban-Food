@@ -58,4 +58,20 @@ class UserRepository extends Repository
 
         $_SESSION['user'] = ConnectionHandler::getConnection()->insert_id;
     }
+
+    public function grantPerm(string $userEmail, string $perm): void {
+        $user = $this->readByEmail($userEmail);
+        if ($user != null) {
+            if ($perm == 'true') {
+                $newPerm = 1;
+            } else {
+                $newPerm = 0;
+            }
+            $grantQuery = "UPDATE users SET is_admin = ? WHERE id = ?";
+            $grantStatement = ConnectionHandler::getConnection()->prepare($grantQuery);
+            $grantStatement->bind_param('ii', $newPerm, $user->id);
+            $grantStatement->execute();
+            $grantStatement->close();
+        }
+    }
 }

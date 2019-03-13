@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Authentication\Authentication;
+use App\Repository\UserRepository;
 use App\View\View;
 
 class UserController
@@ -21,6 +22,32 @@ class UserController
         }
     }
 
+    public function grant(): void {
+        $view = new View('User/grant');
+        $view->title = 'Grant';
+        $view->display();
+    }
+
+    public function create(): void {
+        $view = new View('User/create');
+        $view->title = 'Create';
+        $view->display();
+    }
+
+    public function changePermissions(): void {
+        if (isset($_POST['useremail']) && isset($_POST['newPerm'])) {
+            $users = new UserRepository();
+            $users->grantPerm($_POST['useremail'], $_POST['newPerm']);
+        }
+        if (isset($_POST['useremail']) && isset($_POST['delUser'])) {
+            $users = new UserRepository();
+            $user = $users->readByEmail($_POST['useremail']);
+            if ($user != null) {
+                $users->deleteById($user->id);
+            }
+        }
+    }
+
     public function logout(): void {
         Authentication::logout();
         $view = new View('User/logout');
@@ -30,7 +57,7 @@ class UserController
 
     public function wronginformations() {
         $view = new View('user/wronginformations');
-        $view->title = 'Wring Informations';
+        $view->title = 'Wrong Informations';
         $view->display();
     }
 }
