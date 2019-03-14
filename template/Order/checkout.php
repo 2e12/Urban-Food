@@ -16,14 +16,14 @@
             ?>
         </table>
         <h3>Allergien</h3>
-        <select name="allergien">
+        <select name="allergy">
             <option value="Keine">Keine</option>
             <option value="glutenfrei">Glutenfrei</option>
             <option value="Laktosefrei">Laktosefrei</option>
             <option value="Nuss/Schallenfrüchte">Nuss/Schallenfrüchte</option>
         </select>
         <h3>Kommentar</h3>
-        <textarea name="comment"></textarea><br>
+        <textarea maxlength="500" name="comment"></textarea><br>
         <input type="submit" name="buy" value="buy">
     </form>
     <?php
