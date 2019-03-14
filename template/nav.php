@@ -12,7 +12,7 @@
         }
         else {
             ?>
-            <li><a href="/profile">Profile</a></li>
+            <li><a href="/User/index">Profile</a></li>
             <?php
         }
         ?>
