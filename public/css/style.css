@@ -11,6 +11,10 @@ body {
     height: 100%;
 }
 
+table {
+    width: 100%;
+}
+
 .upset {
     vertical-align: 15%;
     font-size: 75%;
@@ -412,6 +416,12 @@ h1.floated {
     font-size: 24px;
     text-align: right;
     margin-top: 20px;
+}
+
+#product_overview .pv_added {
+    background: none;
+    box-shadow: none;
+    cursor: default;
 }
 #product_overview #pv_name {
     font-weight: bold;

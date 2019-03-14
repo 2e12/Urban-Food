@@ -23,6 +23,7 @@ class OrderController
 
             $view = new View('Order/checkout');
             $view->title = 'Checkout';
+            $view->basket = $_SESSION["order"];
             $view->display();
 
         }
@@ -61,7 +62,7 @@ class OrderController
         if (!$valid) {
             exit;
         }
-        echo "ok";
+        echo "ok"; //Necessary for client javascript redirection to order/checkout. Don't touch this!
         $_SESSION["order"] = $products;
     }
 }

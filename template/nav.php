@@ -10,6 +10,11 @@
             <li><a href="/register">Register</a></li>
             <?php
         }
+        else {
+            ?>
+            <li><a href="/profile">Profile</a></li>
+            <?php
+        }
         ?>
     </ul>
 </div>
@@ -30,23 +35,8 @@
 <div id="shoppingcart">
     <h1>shopping cart</h1>
     <div id="product_cart">
-        <div id="template">
-            <div class="pc_name">The late spätig</div>
-            <div><input type="number" name="quantity" min="1" max="10"></div>
-            <div class="pc_name">0.99$</div>
-        </div>
 
-        <div class="line">
-            <div class="pc_name">The late spätig</div>
-            <div><input type="number" name="quantity" min="1" max="10"></div>
-            <div class="pc_name">0.99$</div>
-        </div>
-        <div class="line">
-            <div class="pc_name">The late spätig</div>
-            <div><input type="number" name="quantity" min="1" max="10"></div>
-            <div class="pc_name">0.99$</div>
-        </div>
     </div>
     <div id="total"><p></p></div>
-    <button>kaufen</button>
+    <button id="shoppingcart_buy">kaufen</button>
 </div>
