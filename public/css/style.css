@@ -528,3 +528,7 @@ h1.floated {
 .del i {
     color: #000000;
 }
+
+select.dropdown {
+    margin-bottom: 30px;
+}
