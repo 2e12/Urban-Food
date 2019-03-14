@@ -5,13 +5,20 @@ namespace App\Controller;
 use App\Authentication\Authentication;
 use App\Repository\OrderRepository;
 use App\Repository\ProductRepository;
+use App\Repository\Repository;
 use App\View\View;
 
 class OrderController
 {
     public function index(): void
     {
-
+        if (isset($_SESSION["user"])) {
+            $view = new View('Order/index');
+            $view->title = 'Bestellungen';
+            $repository = new OrderRepository();
+            $view->orders = $repository->readByUserId($_SESSION["user"]);
+            $view->display();
+        }
     }
 
     public function buy(): void
@@ -61,7 +68,7 @@ class OrderController
             $repository = new OrderRepository();
             $order = $repository->readById($_GET["id"]);
             $products = $repository->readProductsByOrderId($_GET["id"]);
-            if ($order and $products) {
+            if ($order !== null and $products !== null) {
                 if ($order->user_id == $_SESSION["user"]) {
                     $authenticated = true;
                 }
