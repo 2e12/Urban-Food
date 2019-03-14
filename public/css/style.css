@@ -515,6 +515,9 @@ h1.floated {
     text-decoration: none;
 }
 
+.content .linkbutton {
+    box-shadow: none;
+}
 @keyframes rotate {
     from {
         transform: rotate(0deg);
