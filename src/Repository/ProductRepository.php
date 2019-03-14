@@ -38,7 +38,7 @@ class ProductRepository extends Repository
         // Datenbankressourcen wieder freigeben
     }
 
-    function insert(string $textName, $textPrice, string $textDesc, string $textPath, string $textCatId): void {
+    function insert(string $textName, $textPrice, string $textDesc, array $arrImage, string $textCatId): void {
         $insertQuery = "INSERT INTO {$this->tableName} (`name`,price,description,image_path,category_id) VALUES (?,?,?,?,?)";
         $insertStatement = ConnectionHandler::getConnection()->prepare($insertQuery);
         $price = doubleval($textPrice);
@@ -58,13 +58,16 @@ class ProductRepository extends Repository
             case '4':
                 $catName = 'asia/';
                 break;
+            case '5':
+                $catName = 'pizza/';
+                break;
             default:
                 $catName = null;
                 break;
         }
         $cId = intval($textCatId);
-        $prefix = '/img/upload/'.$catName;
-        $path = $prefix.$textPath;
+        $dbPrefix = '/img/upload/'.$catName;
+        $path = $dbPrefix.$arrImage['name'];
         $insertStatement->bind_param('sdssi', $textName, $price, $textDesc, $path, $cId);
         $insertStatement->execute();
         $insertStatement->close();

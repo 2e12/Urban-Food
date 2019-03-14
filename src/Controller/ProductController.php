@@ -38,8 +38,33 @@ class ProductController
 
     public function createProduct(): void {
         $repository = new ProductRepository();
-        if (isset($_POST['productName']) && isset($_POST['productPrice']) && isset($_POST['productDesc']) && isset($_POST['productPath']) && isset($_POST['productCategory'])) {
-            $repository->insert($_POST['productName'], $_POST['productPrice'], $_POST['productDesc'], $_POST['productPath'], $_POST['productCategory'],);
+
+        if (isset($_POST['productName']) && isset($_POST['productPrice']) && isset($_POST['productDesc']) && isset($_POST['productCategory'])) {
+            switch ($_POST['productCategory']) {
+                case '0':
+                    $catName = 'sandwich/';
+                    break;
+                case '1':
+                    $catName = 'burger/';
+                    break;
+                case '2':
+                    $catName = 'snack/';
+                    break;
+                case '3':
+                    $catName = 'drink/';
+                    break;
+                case '4':
+                    $catName = 'asia/';
+                    break;
+                case '5':
+                    $catName = 'pizza/';
+                    break;
+                default:
+                    $catName = null;
+                    break;
+            }
+            move_uploaded_file($_FILES['productImage']['tmp_name'], $_SERVER['DOCUMENT_ROOT'].'/img/upload/'.$catName.$_FILES['productImage']['name']);
+            $repository->insert($_POST['productName'], $_POST['productPrice'], $_POST['productDesc'], $_FILES['productImage'], $_POST['productCategory']);
         }
         header('Location: /Product/create');
     }
