@@ -20,7 +20,7 @@ class OrderRepository extends Repository
     {
         $db = ConnectionHandler::getConnection();
 
-        $query = "SELECT * FROM `ordering_product` WHERE `ordering_id` = ?";
+        $query = "SELECT product.id, product.name, product.price, ordering_product.quantity  FROM `ordering_product` JOIN product ON ordering_product.product_id = product.id WHERE `ordering_id` = ?";
         $statement = $db->prepare($query);
 
         $statement->bind_param('i', $id);
@@ -51,10 +51,10 @@ class OrderRepository extends Repository
 
         $orderId = $db->insert_id;
 
-        $query = "INSERT INTO `ordering_product`(`ordering_id`, `product_id`) VALUES (?,?)";
+        $query = "INSERT INTO `ordering_product`(`ordering_id`, `product_id`, `quantity`) VALUES (?,?,?)";
         $statement = $db->prepare($query);
         foreach ($products as $product) {
-            $statement->bind_param('ii', $orderId, $product[0]->id);
+            $statement->bind_param('iii', $orderId, $product[0]->id, $product[0]->quantity);
             $statement->execute();
         }
 
