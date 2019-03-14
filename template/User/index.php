@@ -10,6 +10,9 @@ echo  '<div class="content">
 if ($permissions == true) {
     echo '<a class="linkbutton" href="/User/create">neue User erfassen</a><br>
           <a class="linkbutton" href="/User/grant">Berechtigungen bearbeiten</a><br>
+          <a class="linkbutton" href="/Ingredient/create">neue Zutat erfassen</a><br>
+          <a class="linkbutton" href="/Ingredient/delete">Zutat löschen</a><br>
+          <a class="linkbutton" href="/Product/link">Zutat zu Produkt hinzufügen</a><br>
           <a class="linkbutton" href="/Product/create">neues Produkt erfassen</a><br>
           <a class="linkbutton" href="/Product/delete">Produkt aus Sortiment löschen</a>';
 }

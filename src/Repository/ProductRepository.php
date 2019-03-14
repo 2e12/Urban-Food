@@ -69,4 +69,19 @@ class ProductRepository extends Repository
         $insertStatement->execute();
         $insertStatement->close();
     }
+
+    public function readByName(string $textName) {
+        $selectQuery = "SELECT * FROM {$this->tableName} WHERE `name`=?";
+        $selectStatement = ConnectionHandler::getConnection()->prepare($selectQuery);
+        $selectStatement->bind_param('s', $textName);
+        $selectStatement->execute();
+
+        $result = $selectStatement->get_result();
+        if (!$result) {
+            throw new Exception($selectStatement->error);
+        }
+
+        $row = $result->fetch_object();
+        return $row;
+    }
 }

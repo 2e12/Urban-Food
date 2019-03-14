@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Repository\IngredientRepository;
+use App\Repository\Product_IngredientRepository;
 use App\Repository\ProductRepository;
 use App\View\View;
 
@@ -60,5 +62,23 @@ class ProductController
                 echo "null";
             }
         }
+    }
+
+    public function link(): void {
+        $view = new View('Product/link');
+        $view->title = 'Link';
+        $view->display();
+    }
+
+    public function linkProdWIng(): void {
+        $prodRepo = new ProductRepository();
+        $ingRepo = new IngredientRepository();
+        echo $_POST['product'].$_POST['ingredient'];
+        $p = $prodRepo->readByName($_POST['product']);
+        $i = $ingRepo->readByName($_POST['ingredient']);
+        echo $p->name.$i->name;
+        $prodIngRepo = new Product_IngredientRepository();
+        $prodIngRepo->insert($p->id, $i->id);
+        header('Location: /Product/link');
     }
 }
