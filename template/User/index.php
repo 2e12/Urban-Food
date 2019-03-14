@@ -14,10 +14,11 @@ if ($permissions == true) {
           <a class="linkbutton" href="/Ingredient/delete">Zutat löschen</a><br>
           <a class="linkbutton" href="/Product/link">Zutat zu Produkt hinzufügen</a><br>
           <a class="linkbutton" href="/Product/create">neues Produkt erfassen</a><br>
-          <a class="linkbutton" href="/Product/delete">Produkt aus Sortiment löschen</a>';
+          <a class="linkbutton" href="/Product/delete">Produkt aus Sortiment löschen</a><br>';
 }
 else {
-    echo '<a class="linkbutton" href="/category">weiter zum Shop</a>';
+    echo '<a class="linkbutton" href="/category">weiter zum Shop</a><br>';
+    echo '<a class="linkbutton" href="/order">Bestellungen</a><br>';
 }
 
 echo '</div>';

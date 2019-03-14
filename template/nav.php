@@ -38,5 +38,5 @@
 
     </div>
     <div id="total"><p></p></div>
-    <button id="shoppingcart_buy">kaufen</button>
+    <button class="linkbutton" id="shoppingcart_buy">kaufen</button>
 </div>
