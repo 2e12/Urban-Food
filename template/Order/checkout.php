@@ -24,7 +24,7 @@
         </select>
         <h3>Kommentar</h3>
         <textarea maxlength="500" name="comment"></textarea><br>
-        <input type="submit" name="buy" value="buy">
+        <input type="submit" class="linkbutton" name="buy" value="kaufen">
     </form>
     <?php
     }
