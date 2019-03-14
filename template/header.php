@@ -20,7 +20,7 @@
                 <div></div>
                 <div></div>
             </div>
-            <div id="apptitle">Urban Food</div>
+            <a href="/" id="apptitle">Urban Food</a>
 
             <?php
             if (isset($_SESSION["user"])) {
