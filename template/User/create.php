@@ -4,7 +4,7 @@ if ($permission == true) {
     echo '<div class="content">
           <h1>Neuen Benutzer erfassen</h1>
           <div class="formblock">
-            <form method="POST" action="/Register/create">
+            <form method="POST" action="/Register/create" class="smallform">
                 <input name="emailadress" placeholder="deine Email-Adresse" type="email">
                 <input name="firstname" placeholder="dein Vorname" >
                 <input name="lastname" placeholder="dein Nachname">

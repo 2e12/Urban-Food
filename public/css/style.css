@@ -281,7 +281,7 @@ h1.floated {
     margin-right: 0;
 }
 
-.content form {
+.smallform {
     display: flex;
     flex-direction: column;
     padding: 0.2% 0;
