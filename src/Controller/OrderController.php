@@ -15,6 +15,11 @@ class OrderController
 
     public function buy(): void
     {
+        if (isset($_POST["buy"]) and isset($_POST["comment"])) {
+            $view = new View('Order/buy');
+            $view->title = 'Danke für Ihren Einkauf';
+            $view->display();
+        }
     }
 
     public function checkout(): void

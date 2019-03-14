@@ -9,3 +9,55 @@
 namespace App\Repository;
 
 
+use App\Database\ConnectionHandler;
+use Exception;
+
+class OrderRepository extends Repository
+{
+    protected $tableName = 'ordering';
+
+    function readProductsByOrderId($id)
+    {
+        $db = ConnectionHandler::getConnection();
+
+        $query = "SELECT * FROM `ordering_product` WHERE `ordering_id` = ?";
+        $statement = $db->prepare($query);
+
+        $statement->bind_param('i', $id);
+        $statement->execute();
+
+        $result = $statement->get_result();
+        if (!$result) {
+            throw new Exception($statement->error);
+        }
+
+        // Datensätze aus dem Resultat holen und in das Array $rows speichern
+        $rows = array();
+        while ($row = $result->fetch_object()) {
+            $rows[] = $row;
+        }
+
+        return $rows;
+    }
+
+    function insertOrder(int $userId, string $comment, string $allergy, array $products): int
+    {
+        $db = ConnectionHandler::getConnection();
+        $query = "INSERT INTO `ordering`(`user_id`,  `comment`, `allergy`) VALUES (?,?,?)";
+        $statement = $db->prepare($query);
+
+        $statement->bind_param('iss', $userId, $comment, $allergy);
+        $statement->execute();
+
+        $orderId = $db->insert_id;
+
+        $query = "INSERT INTO `ordering_product`(`ordering_id`, `product_id`) VALUES (?,?)";
+        $statement = $db->prepare($query);
+        foreach ($products as $product) {
+            $statement->bind_param('ii', $orderId, $product[0]->id);
+            $statement->execute();
+        }
+
+        return $orderId;
+    }
+}
