@@ -40,6 +40,27 @@ class OrderRepository extends Repository
         return $rows;
     }
 
+    public function readByUserId(int $userId): array
+    {
+        $query = "SELECT * FROM ordering WHERE user_id = ? LIMIT 0, 100";
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->bind_param("i", $userId);
+        $statement->execute();
+
+        $result = $statement->get_result();
+        if (!$result) {
+            throw new Exception($statement->error);
+        }
+
+        // Datensätze aus dem Resultat holen und in das Array $rows speichern
+        $rows = array();
+        while ($row = $result->fetch_object()) {
+            $rows[] = $row;
+        }
+
+        return $rows;
+    }
+
     function insertOrder(int $userId, string $comment, string $allergy, array $products): int
     {
         $db = ConnectionHandler::getConnection();
