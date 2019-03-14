@@ -1,3 +1,6 @@
+<script>
+    storage.removeItem('cart');
+</script>
 <div class="content">
     <h1>Vielen Dank</h1>
     <p>Vielen Dank für Ihre Bestellung. Ihre Lieferung ist bereits auf dem Weg.</p>
