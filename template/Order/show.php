@@ -12,9 +12,13 @@
     <h2>Warenkorb</h2>
     <table>
         <?php
+        $total = 0;
         foreach ($products as $product) {
-            echo "<tr><td>" . $product->quantity . "x</td><td> " . $product->name . "</td><td>$" . $product->quantity * $product->price . "</td></tr>";
+            $price = $product->quantity * $product->price;
+            $total += $price;
+            echo "<tr><td>" . $product->quantity . "x</td><td> " . $product->name . "</td><td>$" . $price . "</td></tr>";
         }
         ?>
     </table>
+    Total: $<?php echo $total; ?>
 </div>

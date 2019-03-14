@@ -9,12 +9,16 @@
         <table>
             <?php
             if (isset($_SESSION["user"])) {
+            $total = 0;
             foreach ($_SESSION["order"] as $product) {
+                $price = $product[0]->quantity * $product[0]->price;
+                $total += $price;
                 $product = $product[0];
                 echo "<tr><td>" . $product->quantity . "</td><td> " . $product->name . "</td><td>$" . $product->quantity * $product->price . "</td></tr>";
             }
             ?>
         </table>
+        <strong>Total:</strong> $<?php echo $total; ?>
         <h3>Allergien</h3>
         <select name="allergy">
             <option value="Keine">Keine</option>
