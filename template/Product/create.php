@@ -3,7 +3,7 @@ echo '
 <div class="content">
     <h1>Neues Produkt erfassen</h1>
     <div class="formblock">
-       <form method="POST" action="/Product/createProduct">
+       <form method="POST" action="/Product/createProduct" class="smallform">
         <input name="productName" type="text" placeholder="Name des Produkts" required>
         <input name="productPrice" type="number" step="0.01" placeholder="Preis" required>
         <input name="productDesc" type="text" placeholder="Beschreibung des Produkts" required>
