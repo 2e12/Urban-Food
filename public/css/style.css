@@ -526,3 +526,7 @@ h1.floated {
 .formblock select {
     margin-bottom: 40px;
 }
+
+.del i {
+    color: #000000;
+}

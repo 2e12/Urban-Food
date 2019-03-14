@@ -167,7 +167,7 @@ class Repository
      *
      * @throws Exception falls das Ausführen des Statements fehlschlägt
      */
-    public function deleteById($id)
+    public function deleteById(int $id)
     {
         $query = "DELETE FROM {$this->tableName} WHERE id=?";
 
