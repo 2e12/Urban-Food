@@ -21,6 +21,19 @@ class ProductController
         $view->display();
     }
 
+    public function delete(): void {
+        $view = new View('Product/delete');
+        $view->title = 'Delete';
+        $view->display();
+    }
+
+    public function del(): void {
+        $repo = new ProductRepository();
+        $repo->deleteById($_GET['id']);
+        header('Location: /Product/delete');
+        exit();
+    }
+
     public function createProduct(): void {
         $repository = new ProductRepository();
         if (isset($_POST['productName']) && isset($_POST['productPrice']) && isset($_POST['productDesc']) && isset($_POST['productPath']) && isset($_POST['productCategory'])) {

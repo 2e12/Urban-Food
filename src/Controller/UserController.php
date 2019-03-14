@@ -61,4 +61,10 @@ class UserController
         $view->title = 'Wrong Informations';
         $view->display();
     }
+
+    public function forbidden(): void {
+        $view = new View('/User/forbidden');
+        $view->title = 'Forbidden!';
+        $view->display();
+    }
 }
