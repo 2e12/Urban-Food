@@ -18,6 +18,7 @@ if ($permissions == true) {
 }
 else {
     echo '<a class="linkbutton" href="/category">weiter zum Shop</a>';
+    echo '<a class="linkbutton" href="/order">Bestellungen</a>';
 }
 
 echo '</div>';
