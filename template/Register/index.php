@@ -4,7 +4,7 @@ echo
     <h1>Registrieren</h1>
     <div class="formlayout">
         <div class="formblock">
-            <form method="POST" action="Register/register">
+            <form method="POST" action="Register/register" class="smallform">
                 <input name="emailadress" placeholder="deine Email-Adresse" type="email">
                 <input name="firstname" placeholder="dein Vorname" >
                 <input name="lastname" placeholder="dein Nachname">

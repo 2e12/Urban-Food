@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Database\ConnectionHandler;
+use App\View\View;
 
 class UserRepository extends Repository
 {

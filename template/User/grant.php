@@ -34,4 +34,6 @@ if ($permission == true) {
             </table>
         </div>
         </div>';
+} else {
+    header('Location: /User/forbidden');
 }

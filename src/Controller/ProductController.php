@@ -31,6 +31,7 @@ class ProductController
         $repo = new ProductRepository();
         $repo->deleteById($_GET['id']);
         header('Location: /Product/delete');
+        exit();
     }
 
     public function createProduct(): void {
