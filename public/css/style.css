@@ -45,6 +45,19 @@ p {
     top: 70px;
 }
 
+#content p {
+    margin-bottom: 20px;
+}
+
+#content textarea {
+    width: 100%;
+    min-height: 150px;
+    resize: vertical;
+    font: inherit;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
 #menu {
     position: fixed;
     bottom: 0;
