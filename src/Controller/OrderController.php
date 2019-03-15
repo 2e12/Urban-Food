@@ -6,6 +6,7 @@ use App\Authentication\Authentication;
 use App\Repository\OrderRepository;
 use App\Repository\ProductRepository;
 use App\Repository\Repository;
+use App\Repository\UserRepository;
 use App\View\View;
 
 class OrderController
@@ -54,6 +55,15 @@ class OrderController
         if (isset($_SESSION["order"])) {
             $view = new View('Order/checkout');
             $view->title = 'Checkout';
+            $adress = null;
+            $user = null;
+            if (isset($_SESSION["user"])) {
+                $repository = new UserRepository();
+                $adress = $repository->readAdressByUserId($_SESSION["user"]);
+                $user = $repository->readById($_SESSION["user"]);
+            }
+            $view->adress = $adress;
+            $view->user = $user;
             $view->basket = $_SESSION["order"];
             $view->display();
         }
@@ -79,6 +89,11 @@ class OrderController
             exit;
         }
         $view = new View('Order/show');
+        $repository = new UserRepository();
+        $adress = $repository->readAdressByUserId($order->user_id);
+        $user = $repository->readById($order->user_id);
+        $view->adress = $adress;
+        $view->user = $user;
         $view->title = 'Einkauf';
         $view->comment = $order->comment;
         $view->allergy = $order->allergy;

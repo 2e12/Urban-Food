@@ -7,6 +7,11 @@
         <p>Überprüfen Sie Ihre Bestellung, bevor Sie sie tätigen. Merken Sie Informationen über mögliche Allergien im Feld
             "Allergien" oder "Kommentar" an.</p>
         <p>Zahlung wird direkt vor Ort vorgenommen.</p>
+
+        <h3>Adresse</h3>
+        <?php
+        echo $user->prename . " " . $user->lastname . "<br>" . $adress->postal_code . " " . $adress->city . "<br>" . $adress->street;
+        ?>
         <h3>Warenkorb</h3>
         <form action="/order/buy" method="POST">
             <table>
