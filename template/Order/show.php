@@ -1,6 +1,10 @@
 <div class="content">
     <h1>Einkauf</h1>
     <h2>Details</h2>
+    <h3>Adresse</h3>
+    <?php
+    echo $user->prename . " " . $user->lastname . "<br>" . $adress->postal_code . " " . $adress->city . "<br>" . $adress->street;
+    ?>
     <h3>Kommentar</h3>
     <?php
     echo $comment;
