@@ -202,7 +202,6 @@ p {
     border-radius: 10px;
     cursor: pointer;
     display: inline-block;
-    background: url("https://mein.hofer.at/medias/RZP-R-Hofer-Burger-mit-Grillgemuese-und-Kartoffel-Wedges-RZ016945-RecipeImage-647x465?context=bWFzdGVyfGltYWdlc3w0NTc1MDl8aW1hZ2UvcG5nfGltYWdlcy9oMmMvaDViLzg5NDczMjAzNTY4OTQucG5nfGExOWE4OGMzZDlhNzczMzlmYWU0MTliMjIxOTk4ZjdhMzU2NzgyNDhlMjFkNzI5OGNhYjI5MTI0ODhkNTg5ZmE");
     background-size: cover !important;
     background-position: center !important;
     position: relative;
@@ -562,4 +561,50 @@ h1.floated {
 
 select.dropdown {
     margin-bottom: 30px;
+}
+
+.container .row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.container .row .linkbutton {
+    max-height: 30px;
+
+}
+
+.container .row .linkbutton .right {
+    float: right;
+}
+
+.container .row .linkbutton .left {
+    float: left;
+}
+
+.container .row .burger {
+    background-image: url("/img/upload/burger/burger.jpg");
+}
+
+.container .row .pizza {
+    background: url("/img/upload/pizza/pizza.jpg");
+}
+
+.container .row .softdrinks {
+    background: url("/img/upload/drink/softdrinks.jpg");
+}
+
+.container .row a {
+    color: white;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 400px) {
+    .container .row {
+        flex-direction: column;
+    }
+
+    .container .row .linkbutton {
+        display: none;
+    }
 }
