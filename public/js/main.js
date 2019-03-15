@@ -129,6 +129,7 @@ $(document).ready(function () {
                     .then(function (data) {
                         $('#pv_name').text(data.name);
                         $('#pv_description').text(data.description);
+                        $('#pv_ingredients a').attr("href", "/product/ingredient/?id=" + data.id);
                         $('#pv_price').text(data.price);
 
                         $('#pv_buy').attr("class", "");
