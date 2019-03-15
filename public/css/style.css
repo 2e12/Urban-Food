@@ -617,3 +617,12 @@ select.dropdown {
         display: none;
     }
 }
+
+.linkbutton.back a{
+    color: white;
+    text-decoration: none;
+}
+
+.inline_element {
+    margin: 40px;
+}
