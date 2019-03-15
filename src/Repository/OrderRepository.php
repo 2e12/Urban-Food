@@ -61,13 +61,13 @@ class OrderRepository extends Repository
         return $rows;
     }
 
-    function insertOrder(int $userId, string $comment, string $allergy, array $products): int
+    function insertOrder(int $userId, string $comment, string $allergy, int $adressId, array $products): int
     {
         $db = ConnectionHandler::getConnection();
-        $query = "INSERT INTO `ordering`(`user_id`,  `comment`, `allergy`) VALUES (?,?,?)";
+        $query = "INSERT INTO `ordering`(`user_id`,  `comment`, `allergy`, `adress_id`) VALUES (?,?,?,?)";
         $statement = $db->prepare($query);
 
-        $statement->bind_param('iss', $userId, $comment, $allergy);
+        $statement->bind_param('iss', $userId, $comment, $allergy, $adressId);
         $statement->execute();
 
         $orderId = $db->insert_id;
