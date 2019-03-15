@@ -14,9 +14,11 @@ class IngredientController
     }
 
     public function createIngredient(): void {
-        $repo = new IngredientRepository();
-        $repo->insert($_POST['ingredientName']);
-        header('Location: /Ingredient/create');
+        if (isset($_POST["ingredientName"])) {
+            $repo = new IngredientRepository();
+            $repo->insert($_POST["ingredientName"]);
+            header('Location: /Ingredient/create');
+        }
     }
 
     public function delete(): void {
@@ -26,8 +28,10 @@ class IngredientController
     }
 
     public function del(): void {
-        $repo = new IngredientRepository();
-        $repo->deleteByName($_GET['name']);
-        header('Location: /Ingredient/delete');
+        if (isset($_GET['name'])) {
+            $repo = new IngredientRepository();
+            $repo->deleteByName($_GET['name']);
+            header('Location: /Ingredient/delete');
+        }
     }
 }
