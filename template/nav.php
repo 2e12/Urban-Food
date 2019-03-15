@@ -29,6 +29,7 @@
         <p><span id="pv_description">Loading</span></p>
         <p id="price">$<span id="pv_price">Loading</span></p>
         <input id="pv_buy" type="submit">
+        <div id="pv_ingredients"><a>Zutaten</a></div>
     </div>
     <div class="load"></div>
 </div>
