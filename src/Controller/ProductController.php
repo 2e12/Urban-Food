@@ -29,6 +29,26 @@ class ProductController
         $view->display();
     }
 
+    public function ingredients()
+    {
+        if (isset($_GET["id"])) {
+            $view = new View('Product/ingredients');
+            $ingredientRepository = new Product_IngredientRepository();
+            $productRepository = new ProductRepository();
+            $product = $productRepository->readById($_GET["id"]);
+            $view->product = $product;
+            $ingredients = $ingredientRepository->readByProductId($_GET["id"]);
+            $view->ingredients = $ingredients;
+            $view->title = "Zutaten";
+            if ($product and $ingredients) {
+                $view->display();
+            }
+            else {
+                header("location: /");
+            }
+        }
+    }
+
     public function del(): void {
         $repo = new ProductRepository();
         $repo->deleteById($_GET['id']);
