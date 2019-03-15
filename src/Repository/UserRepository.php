@@ -9,6 +9,26 @@ class UserRepository extends Repository
 {
     protected $tableName = 'users';
 
+    public function readAdressByUserId($userId)
+    {
+        $db = ConnectionHandler::getConnection();
+        $query = "SELECT adress.id, adress.city, adress.postal_code, adress.street FROM `users` JOIN `adress` ON users.adress_id = adress.id WHERE users.id = ?";
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->bind_param('s', $userId);
+        $statement->execute();
+
+        $result = $statement->get_result();
+        if (!$result) {
+            return null;
+        }
+
+        $row = $result->fetch_object();
+
+        $result->close();
+
+        return $row;
+    }
+
     public function readByEmail(string $textEmail)
     {
         $query = "SELECT * FROM {$this->tableName} WHERE email = ?";
