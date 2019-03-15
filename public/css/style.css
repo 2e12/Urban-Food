@@ -447,7 +447,7 @@ h1.floated {
     margin-top: 10px;
 }
 
-#product_overview #pv_ingredients {
+#product_overview #pv_ingredients a {
     color: inherit;
     text-decoration: none;
 }
