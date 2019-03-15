@@ -626,3 +626,26 @@ select.dropdown {
 .inline_element {
     margin: 40px;
 }
+
+#footer {
+    padding: 40px;
+    background: #282828;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 25px;
+}
+
+#footer p {
+    width: 100%;
+}
+
+#footer a {
+    color: white;
+}
+
+#footer .row {
+    flex-grow: 1;
+    margin-bottom: 15px;
+    min-width: 150px;
+}
