@@ -9,7 +9,7 @@ echo
                 <input name="firstname" placeholder="dein Vorname" >
                 <input name="lastname" placeholder="dein Nachname">
                 <input name="city" placeholder="Ort">
-                <input name="postalcode" placeholder="Postleitzahl" type="number">
+                <input name="postalcode" placeholder="Postleitzahl" type="number" pattern="^\\d{4}$">
                 <input name="street" placeholder="Strasse">
                 <input name="password" placeholder="dein Passwort" type="password">
                 <input name="repeatedpassword" placeholder="wiederhole dein Passwort" type="password">

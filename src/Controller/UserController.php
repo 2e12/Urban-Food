@@ -35,13 +35,13 @@ class UserController
     }
 
     public function changePermissions(): void {
-        if (isset($_POST['useremail']) && isset($_POST['newPerm'])) {
+        if (isset($_POST['useremail']) && isset($_POST['newPerm']) && preg_match('([!#-\'*+/-9=?A-Z^-~-]+(\.[!#-\'*+/-9=?A-Z^-~-]+)*|"([]!#-[^-~ \t]|(\\[\t -~]))+")@([!#-\'*+/-9=?A-Z^-~-]+(\.[!#-\'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])', $_POST['emailadress'])) {
             $users = new UserRepository();
-            $users->grantPerm($_POST['useremail'], $_POST['newPerm']);
+            $users->grantPerm(htmlspecialchars($_POST['useremail']), htmlspecialchars($_POST['newPerm']));
         }
-        if (isset($_POST['useremail']) && isset($_POST['delUser'])) {
+        if (isset($_POST['useremail']) && isset($_POST['delUser']) && preg_match('([!#-\'*+/-9=?A-Z^-~-]+(\.[!#-\'*+/-9=?A-Z^-~-]+)*|"([]!#-[^-~ \t]|(\\[\t -~]))+")@([!#-\'*+/-9=?A-Z^-~-]+(\.[!#-\'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])', $_POST['emailadress'])) {
             $users = new UserRepository();
-            $user = $users->readByEmail($_POST['useremail']);
+            $user = $users->readByEmail(htmlspecialchars($_POST['useremail']));
             if ($user != null) {
                 $users->deleteById($user->id);
             }

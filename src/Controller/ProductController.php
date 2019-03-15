@@ -64,7 +64,7 @@ class ProductController
                     break;
             }
             move_uploaded_file($_FILES['productImage']['tmp_name'], $_SERVER['DOCUMENT_ROOT'].'/img/upload/'.$catName.$_FILES['productImage']['name']);
-            $repository->insert($_POST['productName'], $_POST['productPrice'], $_POST['productDesc'], $_FILES['productImage'], $_POST['productCategory']);
+            $repository->insert(htmlspecialchars($_POST['productName']), htmlspecialchars($_POST['productPrice']), htmlspecialchars($_POST['productPrice']), $_FILES['productImage'], htmlspecialchars($_POST['productCategory']));
         }
         header('Location: /Product/create');
     }
@@ -99,8 +99,8 @@ class ProductController
         $prodRepo = new ProductRepository();
         $ingRepo = new IngredientRepository();
         echo $_POST['product'].$_POST['ingredient'];
-        $p = $prodRepo->readByName($_POST['product']);
-        $i = $ingRepo->readByName($_POST['ingredient']);
+        $p = $prodRepo->readByName(htmlspecialchars($_POST['product']));
+        $i = $ingRepo->readByName(htmlspecialchars($_POST['ingredient']));
         echo $p->name.$i->name;
         $prodIngRepo = new Product_IngredientRepository();
         $prodIngRepo->insert($p->id, $i->id);
