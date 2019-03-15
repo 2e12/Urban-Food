@@ -1,5 +1,5 @@
 <script>
-    storage.removeItem('cart');
+    localStorage.removeItem('cart');
 </script>
 <div class="content">
     <h1>Vielen Dank</h1>
