@@ -15,4 +15,6 @@
         <?php
     }
     ?>
+
 </div>
+<div class="inline_element"><div class="linkbutton back"><a href="/category">Zurück zur Auswahl</a></div></div>
