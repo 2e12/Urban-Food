@@ -90,8 +90,8 @@ class OrderController
         }
         $view = new View('Order/show');
         $repository = new UserRepository();
-        $adress = $repository->readAdressByUserId($_SESSION["user"]);
-        $user = $repository->readById($_SESSION["user"]);
+        $adress = $repository->readAdressByUserId($order->user_id);
+        $user = $repository->readById($order->user_id);
         $view->adress = $adress;
         $view->user = $user;
         $view->title = 'Einkauf';
