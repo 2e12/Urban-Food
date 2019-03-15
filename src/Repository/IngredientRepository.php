@@ -6,7 +6,7 @@ use App\Database\ConnectionHandler;
 
 class IngredientRepository extends Repository
 {
-    protected $tableName = 'ingredients';
+    protected $tableName = 'ingredient';
 
     public function insert(string $textName): void {
         $insertQuery = "INSERT INTO {$this->tableName} (`name`) VALUES (?)";
