@@ -644,3 +644,60 @@ select.dropdown {
     margin-bottom: 15px;
     min-width: 150px;
 }
+
+.profiles {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.profiles .row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.row .profile {
+    width: 70%;
+    background-color: #343e3d;
+    border-radius: 15px;
+    justify-content: center;
+    margin: 20px 15%;
+    min-height: 615px;
+    padding: 35px;
+}
+
+@media screen and (max-width: 400px){
+    .row .profile {
+        width: 100%;
+        margin: 20px 0;
+        box-sizing: border-box;
+    }
+
+    .profiles .row {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .profiles{
+        flex-wrap: wrap;
+    }
+
+    .texts {
+        width: 225px;
+        text-align: left;
+    }
+}
+
+.row .profile img {
+    border-radius: 160px;
+    border: white 5px solid;
+}
+
+.profile p {
+    color: white;
+}
+
+.texts {
+    margin-top: 20px;
+}
