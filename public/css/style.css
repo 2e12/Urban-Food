@@ -184,6 +184,7 @@ p {
 .content img {
     max-width: 280px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .container {
@@ -659,13 +660,15 @@ select.dropdown {
 }
 
 .row .profile {
-    width: 70%;
     background-color: #343e3d;
     border-radius: 15px;
     justify-content: center;
-    margin: 20px 15%;
     min-height: 615px;
-    padding: 35px;
+    padding: 40px;
+    flex-grow: 1;
+    max-width: 380px;
+    margin: auto;
+    margin-bottom: 60px;
 }
 
 @media screen and (max-width: 400px){
@@ -692,6 +695,9 @@ select.dropdown {
 .row .profile img {
     border-radius: 160px;
     border: white 5px solid;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 50px;
 }
 
 .profile p {
