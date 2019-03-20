@@ -193,7 +193,7 @@ p {
     flex-wrap: wrap;
 }
 
-.product, .banner, .category {
+.product, .banner, .category, .container .description {
     padding: 20px;
     box-sizing: border-box;
     color: white;
@@ -575,52 +575,41 @@ select.dropdown {
     margin-bottom: 30px;
 }
 
-.container .row {
+.front .row {
     width: 100%;
     display: flex;
     align-items: center;
+    margin: 40px;
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
 }
 
-.container .row .linkbutton {
-    max-height: 30px;
-
+.front .product, .front .description {
+    z-index: 2;
+    margin: 0;
+    background: white;
+    box-shadow: none;
+    border-radius: 10px;
 }
 
-.container .row .linkbutton .right {
-    float: right;
+.front .product:hover {
+    bottom: 0;
 }
 
-.container .row .linkbutton .left {
-    float: left;
+.front .description {
+    color: black;
+    width: calc(100% / 3);
+    flex-grow: unset;
+    /*border-radius: 0 10px 10px 0;*/
 }
 
-.container .row .burger {
-    background-image: url("/img/upload/burger/burger.jpg");
-}
-
-.container .row .pizza {
-    background: url("/img/upload/pizza/pizza.jpg");
-}
-
-.container .row .softdrinks {
-    background: url("/img/upload/drink/softdrinks.jpg");
-}
-
-.container .row a {
-    color: white;
+.front a {
     text-decoration: none;
 }
 
-@media screen and (max-width: 400px) {
-    .container .row {
-        flex-direction: column;
-    }
-
-    .container .row .linkbutton {
-        display: none;
-    }
+.front .product {
+    /*border-radius: 10px 0 0 10px;*/
 }
-
 .linkbutton.back a{
     color: white;
     text-decoration: none;
