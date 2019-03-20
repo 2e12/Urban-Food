@@ -634,9 +634,12 @@ select.dropdown {
     padding: 40px;
     background: #282828;
     color: white;
+    padding-bottom: 25px;
+}
+
+.profiles, #footer {
     display: flex;
     flex-wrap: wrap;
-    padding-bottom: 25px;
 }
 
 #footer p {
@@ -647,7 +650,7 @@ select.dropdown {
     color: white;
 }
 
-#footer .row {
+#footer .row, .profiles .row {
     flex-grow: 1;
     margin-bottom: 15px;
     min-width: 150px;
