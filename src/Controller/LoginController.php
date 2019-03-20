@@ -23,7 +23,7 @@ class LoginController
 
     public function login(): void
     {
-        if (isset($_POST['emailadress']) && isset($_POST['password']) && preg_match('([!#-\'*+/-9=?A-Z^-~-]+(\.[!#-\'*+/-9=?A-Z^-~-]+)*|"([]!#-[^-~ \t]|(\\[\t -~]))+")@([!#-\'*+/-9=?A-Z^-~-]+(\.[!#-\'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])', $_POST['emailadress']))
+        if (isset($_POST['emailadress']) && isset($_POST['password']) && filter_var($_POST['emailadress'], FILTER_VALIDATE_EMAIL))
         {
             $loginstate = Authentication::login(htmlspecialchars($_POST['emailadress']), htmlspecialchars($_POST['password']));
             if ($loginstate == true) {
