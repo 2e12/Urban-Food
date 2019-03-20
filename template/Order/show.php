@@ -2,13 +2,15 @@
     <h1>Einkauf</h1>
     <h2>Details</h2>
     <h3>Adresse</h3>
-    <?php
-    echo $user->prename . " " . $user->lastname . "<br>" . $adress->postal_code . " " . $adress->city . "<br>" . $adress->street;
-    ?>
+    <p>
+        <?php
+        echo $user->prename . " " . $user->lastname . "<br>" . $adress->postal_code . " " . $adress->city . "<br>" . $adress->street;
+        ?></p>
     <h3>Kommentar</h3>
-    <?php
-    echo $comment;
-    ?>
+    <p>
+        <?php
+        echo $comment;
+        ?></p>
     <h3>Allergien</h3>
     <?php
     echo $allergy;
