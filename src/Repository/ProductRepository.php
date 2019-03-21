@@ -9,6 +9,11 @@ class ProductRepository extends Repository
 {
     protected $tableName = 'product';
 
+    /**
+     * Baut Verbindung zur Datenbank auf und gibt die Produkte anhand der CategoryId zurück.
+     * @param $id Die CategoryId nach der gesucht wird
+     * @return array Die Suchergebnisse
+     */
     function readByCategoryId($id)
     {
         // Query erstellen
@@ -38,6 +43,14 @@ class ProductRepository extends Repository
         // Datenbankressourcen wieder freigeben
     }
 
+    /**
+     * Baut Verbindung zur Datenbank auf und fügt ein neues Produkt ein.
+     * @param string $textName Der Name des Produkts
+     * @param $textPrice Der Preis des Produkts
+     * @param string $textDesc Die Beschreibung des Produkts
+     * @param array $arrImage Die Bilddatei des Vorschaubildes des Produkts
+     * @param string $textCatId Die Id der Kategorie der das Produkt angehört
+     */
     function insert(string $textName, $textPrice, string $textDesc, array $arrImage, string $textCatId): void {
         $insertQuery = "INSERT INTO {$this->tableName} (`name`,price,description,image_path,category_id) VALUES (?,?,?,?,?)";
         $insertStatement = ConnectionHandler::getConnection()->prepare($insertQuery);
@@ -73,6 +86,11 @@ class ProductRepository extends Repository
         $insertStatement->close();
     }
 
+    /**
+     * Baut Verbindung zur Datenbank auf und gibt Produkte anhand es Namens zurück.
+     * @param string $textName Name des Produkts
+     * @return mixed Die Suchergebnisse
+     */
     public function readByName(string $textName) {
         $selectQuery = "SELECT * FROM {$this->tableName} WHERE `name`=?";
         $selectStatement = ConnectionHandler::getConnection()->prepare($selectQuery);
