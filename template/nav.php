@@ -7,7 +7,7 @@
         if (!isset($_SESSION["user"])) {
             ?>
             <li><a href="/login">Login</a></li>
-            <li><a href="/register">Register</a></li>
+            <li><a href="/register">Registrieren</a></li>
             <?php
         }
         else {
