@@ -7,15 +7,25 @@ use Throwable;
 
 class ExceptionListener
 {
+    /**
+     * ExceptionListener constructor.
+     */
     private function __construct()
     {
     }
 
+    /**
+     * Setzt den Exception Handler
+     */
     public static function register()
     {
         set_exception_handler(self::class.'::handleException');
     }
 
+    /**
+     * Handelt die Exception
+     * @param Throwable $exception Die Exception
+     */
     public function handleException(Throwable $exception)
     {
         $error = $exception->getMessage();

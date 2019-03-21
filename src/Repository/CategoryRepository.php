@@ -8,6 +8,11 @@ class CategoryRepository extends Repository
 {
     protected $tableName = 'categories';
 
+    /**
+     * Baut Verbindung zur Datenbank auf und gibt Kategorien anhand der Id zurück.
+     * @param $id Die Id zum Durchsuchen der Datenbank
+     * @return array Die Ergebnisse
+     */
     function readByCategoryId($id)
     {
         // Query erstellen
