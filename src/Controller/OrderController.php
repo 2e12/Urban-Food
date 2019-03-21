@@ -11,6 +11,10 @@ use App\View\View;
 
 class OrderController
 {
+    /**
+     * Gibt alle Bestellungen des aktuellen Users in ein bestimmtes Viewfile aus.
+     * @throws \Exception Exception in der MySQLi-Verbindung
+     */
     public function index(): void
     {
         if (isset($_SESSION["user"])) {
@@ -22,6 +26,9 @@ class OrderController
         }
     }
 
+    /**
+     * Sendet die Bestellung in die Datenbank und leert den Warenkorb.
+     */
     public function buy(): void
     {
         if (isset($_SESSION["user"]) and isset($_SESSION["order"])) {
@@ -50,6 +57,10 @@ class OrderController
         }
     }
 
+    /**
+     * Überprüft ob der User eingeloogt ist, da dies erfoderlich ist um zu Bestellen.
+     * @throws \Exception Exception in der MySQLi-Verbindung
+     */
     public function checkout(): void
     {
         if (isset($_SESSION["order"])) {
@@ -69,6 +80,11 @@ class OrderController
         }
     }
 
+    /**
+     * Überprüft ob der User berechtigt ist, die Rechnung einzusehen und läst anschliessend die
+     * passenden Rechnungen.
+     * @throws \Exception Exception in der MySQLi-Verbindung
+     */
     public function show(): void
     {
         $authenticated = false; //This Boolean indicates if an user can access an order.
@@ -101,6 +117,10 @@ class OrderController
         $view->display();
     }
 
+    /**
+     * Validiert die Daten aus dem Warenkorb und leitet auf eine "Vielen Dank für den Einkauf"-Seite.
+     * @throws \Exception Exception in der MySQLi-Verbindung
+     */
     public function check(): void
     {
         $valid = false;
