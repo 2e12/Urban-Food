@@ -50,6 +50,9 @@ class UriParser
         }
     }
 
+    /**Gibt den Namen des Controllers und der Methode zurück.
+     * @return array Controllername und Funktionname
+     */
     private static function getUriFragments() : array
     {
         // Die URI wird aus dem $_SERVER Array ausgelesen und in ihre
