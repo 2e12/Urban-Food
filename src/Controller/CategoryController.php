@@ -46,6 +46,7 @@ class CategoryController
         if ($category) {
             $view = new View('Category/product');
             $view->category = $category->name;
+            $view->image = $category->image_path;
             $view->products = $productRepository->readByCategoryId($category_id);
             $view->display();
         }

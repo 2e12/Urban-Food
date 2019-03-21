@@ -1,5 +1,7 @@
-<div class="container">
+<div class="banner" data-background="<?php echo $image ?>">
     <h1 class="floated"><?php echo $category ?></h1>
+</div>
+<div class="container">
     <?php
     foreach ($products as $product) {
         ?>
