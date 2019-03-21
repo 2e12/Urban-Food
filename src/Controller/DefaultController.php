@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\CategoryRepository;
 use App\View\View;
 
 /**
@@ -38,6 +39,10 @@ class DefaultController
     public function index() : void {
         $view = new View('default/index');
         $view->title = 'Home';
+
+        $repository = new CategoryRepository();
+        $view->categories = $repository->readAll();
+
         $view->display();
     }
 }
