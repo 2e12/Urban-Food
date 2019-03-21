@@ -7,6 +7,9 @@ use App\View\View;
 
 class RegisterController
 {
+    /**
+     * Erstellt das Viewfile für das Registrieren.
+     */
     public function index(): void
     {
         $view = new View('Register/index');
@@ -14,6 +17,9 @@ class RegisterController
         $view->display();
     }
 
+    /**
+     * Legt einen neuen Benutzer in der Datenbank an.
+     */
     public function register(): void
     {
         if (isset($_POST['emailadress']) && isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['city']) && isset($_POST['postalcode']) && isset($_POST['street']) && isset($_POST['password']) && isset($_POST['repeatedpassword'])) {
@@ -25,6 +31,9 @@ class RegisterController
         }
     }
 
+    /**
+     * Spezialle Funktion für Admins, die viele Benutzer nacheinander erstellen wollen.
+     */
     public function create()
     {
         if (isset($_POST['emailadress']) && isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['city']) && isset($_POST['postalcode']) && isset($_POST['street']) && isset($_POST['password']) && isset($_POST['repeatedpassword'])) {
