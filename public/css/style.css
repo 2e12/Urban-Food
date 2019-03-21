@@ -541,6 +541,10 @@ h1.floated {
 }
 
 @media screen and (max-width: 720px) {
+    .desktop {
+        display: none !important;
+    }
+
     #product_overview {
         flex-wrap: wrap;
     }
@@ -663,7 +667,7 @@ select.dropdown {
     background-color: #343e3d;
     border-radius: 15px;
     justify-content: center;
-    min-height: 615px;
+    min-height: 645px;
     padding: 40px;
     flex-grow: 1;
     max-width: 380px;

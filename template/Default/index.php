@@ -7,11 +7,11 @@
         <div data-background="/img/upload/burger/burger.jpg" class="product">
             <div class="top">Burger</div>
         </div>
-        <div class="description"><p>Nahrhaft und lecker</p></div>
+        <div class="description desktop"><p>Nahrhaft und lecker</p></div>
     </a>
 
     <a class="row" href="/category/products/?category=1">
-        <div class="description"><p>Nahrhaft und lecker</p></div>
+        <div class="description desktop"><p>Nahrhaft und lecker</p></div>
         <div data-background="/img/upload/pizza/pizza.jpg" class="product">
             <div class="top">Pizza</div>
         </div>
@@ -21,11 +21,11 @@
         <div data-background="/img/upload/snack/snacks_chicken_wings.jpg" class="product">
             <div class="top">Snacks</div>
         </div>
-        <div class="description"><p>Nahrhaft und lecker</p></div>
+        <div class="description desktop"><p>Nahrhaft und lecker</p></div>
     </a>
 
     <a class="row" href="/category/products/?category=5">
-        <div class="description"><p>Nahrhaft und lecker</p></div>
+        <div class="description desktop"><p>Nahrhaft und lecker</p></div>
         <div data-background="/img/upload/drink/softdrinks.jpg" class="product">
             <div class="top">Drinks</div>
         </div>
