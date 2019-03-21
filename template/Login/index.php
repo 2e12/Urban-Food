@@ -12,9 +12,9 @@ echo
         </div>
         <div class="imageblock">
             <div class="images">
-                <div class="TwoSpan"><img src="/img/upload/asia/asia.jpg" alt="asia food"></div>
-                <div class="OneSpan"><img src="/img/upload/burger/burger.jpg" alt="burgers"></div>
-                <div class="ThreeSpan"><img src="/img/upload/pizza/pizza.jpg" alt="pizzas"></div>
+                <div class="TwoSpan"><img src="/img/upload/tiny_images/asia_tiny.jpg" alt="asia food"></div>
+                <div class="OneSpan"><img src="/img/upload/tiny_images/burger_tiny.jpg" alt="burgers"></div>
+                <div class="ThreeSpan"><img src="/img/upload/tiny_images/pizza_tiny.jpg" alt="pizzas"></div>
             </div>  
         </div>
     </div>
