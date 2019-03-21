@@ -1,14 +1,23 @@
+/**
+ * Open and closes the menu
+ */
 function toggleMenu(){
     $( "#menu" ).toggle();
     $("#shoppingcart").hide();
 }
 
+/**
+ * Open and closes the shoppingcart
+ */
 function toggleShoppingCart() {
     renderCart();
     $("#shoppingcart").toggle();
     $("#menu").hide();
 }
 
+/**
+ * Generates the Cart html and sets events for the Elements
+ */
 function renderCart() {
     $("#product_cart").html("");
     let products = getCart().products;
