@@ -8,6 +8,9 @@ use App\View\View;
 
 class StaticController
 {
+    /**
+     * Macht es möglich statische HTML-Files zu laden, in welchen kein PhP gebraucht wurde.
+     */
     public function index(): void
     {
         $fragments = explode("/", $_SERVER['REQUEST_URI']);
