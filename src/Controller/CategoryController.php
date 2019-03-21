@@ -9,6 +9,10 @@ use App\View\View;
 
 class CategoryController
 {
+    /**
+     * Das Viewfile von Category/index wird erstellt und das Repository wird geladen
+     * @throws \Exception Exception in der MySQLi-Verbindung
+     */
     public function index(): void
     {
         $repository = new CategoryRepository();
@@ -17,6 +21,11 @@ class CategoryController
         $view->display();
     }
 
+    /**
+     * Das Viewfile von Category/products wird erstellt, das Repository wird geladen und
+     * die Produkte werden anhand der Kategorie in die Applikation geladen.
+     * @throws \Exception Exception in der MySQLi-Verbindung
+     */
     public function products(): void
     {
         $category_id = false;
@@ -46,5 +55,4 @@ class CategoryController
             exit;
         }
     }
-
 }
