@@ -9,10 +9,6 @@ function toggleShoppingCart() {
     $("#menu").hide();
 }
 
-//<div class="line">
-//    <div class="pc_name">The late spätig</div><div><input type="number" name="quantity" min="1" max="10"></div><div class="pc_name">0.99$</div>
-//</div>
-
 function renderCart() {
     $("#product_cart").html("");
     let products = getCart().products;
