@@ -9,6 +9,11 @@ class UserRepository extends Repository
 {
     protected $tableName = 'users';
 
+    /**
+     * Baut Verbindung zur Datenbank auf und gibt einen User anhand seiner Id zurück.
+     * @param $userId Die Id des Users
+     * @return |null Die Suchergebnisse
+     */
     public function readAdressByUserId($userId)
     {
         $db = ConnectionHandler::getConnection();
@@ -29,6 +34,11 @@ class UserRepository extends Repository
         return $row;
     }
 
+    /**
+     * Baut Verbindung zur Datenbank auf und gibt einen User anhand seiner Email-Adresse zurück.
+     * @param string $textEmail Die Email-Adresse des Users
+     * @return |null Die Suchergebnisse
+     */
     public function readByEmail(string $textEmail)
     {
         $query = "SELECT * FROM {$this->tableName} WHERE email = ?";
@@ -49,6 +59,17 @@ class UserRepository extends Repository
         return $row;
     }
 
+    /**
+     * Baut Verbindung zur Datenbank auf und fügt einen neuen User ein.
+     * @param string $city Die Stadt in der der User lebt
+     * @param string $postalcode Die Postleitzahl des Users
+     * @param string $street Die Strasse in der der User wohnt
+     * @param string $email Die Email-Adresse des Users
+     * @param string $firstname Der Vorname des Users
+     * @param string $lastname Der Nachname des Users
+     * @param string $password Das vom User gewählte Passwort
+     * @param bool $fast Gibt an ob die Aktion vom Admin oder vom normalen User gemacht wurde
+     */
     public function insert(string $city, string $postalcode, string $street, string $email, string $firstname, string $lastname, string $password, bool $fast)
     {
         $adressQuery = "INSERT INTO adress (city, postal_code, street) VALUES (?, ?, ?)";
@@ -82,6 +103,11 @@ class UserRepository extends Repository
         }
     }
 
+    /**
+     * Baut Verbindung zur Datenbank auf und ändert den Administratorenstatus einer Person
+     * @param string $userEmail Die Email-Adresse des betroffenen Users
+     * @param string $perm Die neue Freigabe
+     */
     public function grantPerm(string $userEmail, string $perm): void {
         $user = $this->readByEmail($userEmail);
         if ($user != null) {
