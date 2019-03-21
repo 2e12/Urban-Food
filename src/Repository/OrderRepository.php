@@ -16,6 +16,12 @@ class OrderRepository extends Repository
 {
     protected $tableName = 'ordering';
 
+    /**
+     * Baut Verbindung zur Datenbank auf und gibt produkte anhand der OrderId zurürck.
+     * @param $id Die Id zum Durchsuchen der Datenbank
+     * @return array Die Scuhergebnisse
+     * @throws Exception Die Exception die bei der MySQLi-Verbindung entstehen kann
+     */
     function readProductsByOrderId($id)
     {
         $db = ConnectionHandler::getConnection();
@@ -40,6 +46,12 @@ class OrderRepository extends Repository
         return $rows;
     }
 
+    /**
+     * Baut Verbindung zur Datenbank auf und gibt die Bestellung anhand der Id zurück.
+     * @param int $userId Die Id zum Durchsuchen der Datenbank
+     * @return array Die Suchergebnisse
+     * @throws Exception Die Esception die bei der MySQLi-Verbindung entstehen kann
+     */
     public function readByUserId(int $userId): array
     {
         $query = "SELECT * FROM ordering WHERE user_id = ? LIMIT 0, 100";
@@ -61,6 +73,14 @@ class OrderRepository extends Repository
         return $rows;
     }
 
+    /**
+     * Baut Verbindung zur Datenbank auf und fügt eine Bestellung ein.
+     * @param int $userId Die Id zum Durchsuchen der Datenbank
+     * @param string $comment Der Kommentar des Users
+     * @param string $allergy Allfällige Allergien des Users
+     * @param array $products Die Produkte im Warenkorb
+     * @return int Die Id der neuen Order
+     */
     function insertOrder(int $userId, string $comment, string $allergy, array $products): int
     {
         $db = ConnectionHandler::getConnection();
