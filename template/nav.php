@@ -22,7 +22,7 @@
 <div id="black_overlay"></div>
 <div id="product_overview">
     <div class="row">
-        <img id="pv_image" src="">
+        <img id="pv_image" alt="Product image" src="img/banner.jpg">
     </div>
     <div class="row">
         <span id="pv_name">Loading</span>
