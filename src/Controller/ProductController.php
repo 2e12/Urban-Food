@@ -10,6 +10,9 @@ use App\View\View;
 
 class ProductController
 {
+    /**
+     * Erstellt das Viewfile für den index.
+     */
     public function index(): void
     {
         $view = new View('Product/index');
@@ -17,18 +20,28 @@ class ProductController
         $view->display();
     }
 
+    /**
+     * Erstellt das Viewfile für das Erstellen eines neuen Produkts.
+     */
     public function create(): void {
         $view = new View('Product/create');
         $view->title = 'Create new product';
         $view->display();
     }
 
+    /**
+     * Erstellt das Viewfile für das Löschen eines Produkts.
+     */
     public function delete(): void {
         $view = new View('Product/delete');
         $view->title = 'Delete';
         $view->display();
     }
 
+    /**
+     * Läst die Zutaten aus einer Zwischentabelle anhand der Id des Produkts.
+     * @throws \Exception Exception in der MySQLi-Verbindung
+     */
     public function ingredients()
     {
         if (isset($_GET["id"])) {
@@ -49,6 +62,10 @@ class ProductController
         }
     }
 
+    /**
+     * Löscht Produkt aus der Datenbank.
+     * @throws \Exception Exception in der MySQLi-Verbindung
+     */
     public function del(): void {
         $repo = new ProductRepository();
         $repo->deleteById($_GET['id']);
@@ -56,6 +73,10 @@ class ProductController
         exit();
     }
 
+    /**
+     * Gibt das neue Produkt an das Repo weiter, weist die richtige Kategorie zu
+     * und speichert das im Formular hochgeladene File auf dem Server.
+     */
     public function createProduct(): void {
         $repository = new ProductRepository();
 
@@ -89,6 +110,9 @@ class ProductController
         header('Location: /Product/create');
     }
 
+    /**
+     * Gibt das Produkt anhand der Produkt Id aus.
+     */
     public function get(): void
     {
         header('Content-Type: application/json');
@@ -109,12 +133,18 @@ class ProductController
         }
     }
 
+    /**
+     * Erstellt das Viewfile für das Verbinden von Produkten und Zuateten.
+     */
     public function link(): void {
         $view = new View('Product/link');
         $view->title = 'Link';
         $view->display();
     }
 
+    /**
+     * Erstellt die neue Verbindung zwischen Produkt und Zutat in der Datenbank.
+     */
     public function linkProdWIng(): void {
         $prodRepo = new ProductRepository();
         $ingRepo = new IngredientRepository();
