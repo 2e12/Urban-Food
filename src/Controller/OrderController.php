@@ -35,8 +35,11 @@ class OrderController
             //POST "Buy" is the submit button
             if (isset($_POST["buy"]) and isset($_POST["comment"]) and isset($_POST["allergy"])) {
                 $comment = htmlspecialchars(substr($_POST["comment"], 0, 500));
+                $allergies = array("Keine", "Glutenfrei", "Laktosefrei", "Nuss/Schallenfrüchte");
                 $allergy = htmlspecialchars(substr($_POST["allergy"], 0, 30));
-
+                if (!in_array($allergy, $allergies)) {
+                    $allergy = "Keine";
+                }
                 $repository = new OrderRepository();
                 $id = $repository->insertOrder($_SESSION["user"], $comment, $allergy, $_SESSION["order"]);
 

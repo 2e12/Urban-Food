@@ -1,5 +1,5 @@
 <script>
-    localStorage.removeItem('cart');
+    localStorage.removeItem('cart'); //Deleting the shoppingcart after ordering
 </script>
 <div class="content">
     <h1>Vielen Dank</h1>

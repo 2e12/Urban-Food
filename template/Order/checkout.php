@@ -31,12 +31,12 @@
             <h3>Allergien</h3>
             <select name="allergy">
                 <option value="Keine">Keine</option>
-                <option value="glutenfrei">Glutenfrei</option>
+                <option value="Glutenfrei">Glutenfrei</option>
                 <option value="Laktosefrei">Laktosefrei</option>
                 <option value="Nuss/Schallenfrüchte">Nuss/Schallenfrüchte</option>
             </select>
             <h3>Kommentar</h3>
-            <textarea maxlength="500" name="comment"></textarea><br>
+            <textarea maxlength="500" name="comment" required></textarea><br>
             <input type="submit" class="linkbutton" name="buy" value="kaufen">
         </form>
         <?php
