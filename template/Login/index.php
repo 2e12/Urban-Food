@@ -5,8 +5,8 @@ echo
     <div class="formlayout">
          <div class="formblock">
             <form method="POST" action="Login/login" class="smallform">
-                <input name="emailadress" placeholder="deine Email-Adresse" type="email">
-                <input name="password" placeholder="dein Passwort" type="password">
+                <input name="emailadress" placeholder="deine Email-Adresse" type="email" required>
+                <input name="password" placeholder="dein Passwort" type="password" required>
                 <div class="send"><input type="submit"></div>
             </form>
         </div>

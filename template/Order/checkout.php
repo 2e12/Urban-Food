@@ -36,7 +36,7 @@
                 <option value="Nuss/Schallenfrüchte">Nuss/Schallenfrüchte</option>
             </select>
             <h3>Kommentar</h3>
-            <textarea maxlength="500" name="comment"></textarea><br>
+            <textarea maxlength="500" name="comment" required></textarea><br>
             <input type="submit" class="linkbutton" name="buy" value="kaufen">
         </form>
         <?php
