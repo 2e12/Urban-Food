@@ -741,3 +741,13 @@ select.dropdown {
 .texts {
     margin-top: 20px;
 }
+
+.map {
+    width: 720px;
+    margin: 0 145px;
+}
+
+.mapFrame {
+    width: 720px;
+    height: 600px;
+}
