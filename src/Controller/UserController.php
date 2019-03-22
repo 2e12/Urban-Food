@@ -48,7 +48,7 @@ class UserController
      * @throws \Exception Exception in der MySQLi-Verbindung
      */
     public function changePermissions(): void {
-        if (isset($_POST['useremail']) && isset($_POST['newPerm']) && filter_var($_POST['useremail'], FILTER_VALIDATE_EMAIL)) {
+        if (isset($_POST['useremail']) && isset($_POST['newPerm']) && !isset($_POST['delUser']) &&filter_var($_POST['useremail'], FILTER_VALIDATE_EMAIL)) {
             $users = new UserRepository();
             $users->grantPerm(htmlspecialchars($_POST['useremail']), htmlspecialchars($_POST['newPerm']));
         }

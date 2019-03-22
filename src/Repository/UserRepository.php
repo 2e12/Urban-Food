@@ -4,10 +4,36 @@ namespace App\Repository;
 
 use App\Database\ConnectionHandler;
 use App\View\View;
+use mysql_xdevapi\Exception;
 
 class UserRepository extends Repository
 {
     protected $tableName = 'users';
+
+    public function readAllSortedByName(): array {
+        $query = "SELECT * FROM {$this->tableName} ORDER BY lastname LIMIT 0, 100";
+
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        if ($statement->execute() == false) {
+            throw new Exception($statement->error);
+        }
+        else {
+            $statement->execute();
+        }
+
+        $result = $statement->get_result();
+        if (!$result) {
+            throw new Exception($statement->error);
+        }
+
+        // Datensätze aus dem Resultat holen und in das Array $rows speichern
+        $rows = array();
+        while ($row = $result->fetch_object()) {
+            $rows[] = $row;
+        }
+
+        return $rows;
+    }
 
     /**
      * Baut Verbindung zur Datenbank auf und gibt einen User anhand seiner Id zurück.

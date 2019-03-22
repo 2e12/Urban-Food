@@ -1,7 +1,7 @@
 <?php
 $permission = \App\Authentication\Authentication::getAuthenticatedUser()->is_admin;
 $users = new \App\Repository\UserRepository();
-$arrUsers = $users->readAll();
+$arrUsers = $users->readAllSortedByName();
 if ($permission == true) {
     echo '<div class="content">
         <div class="grant">

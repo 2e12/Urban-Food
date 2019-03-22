@@ -751,3 +751,13 @@ select.dropdown {
     width: 720px;
     height: 600px;
 }
+
+.error {
+    margin: 0 calc(100% / 5 * 2);
+    width: calc(100% / 5);
+}
+
+.mid {
+    margin-left: 462px;
+    margin-bottom: 50px;
+}
