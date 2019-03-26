@@ -19,7 +19,7 @@ class ExceptionListener
      */
     public static function register()
     {
-        set_exception_handler(self::class.'::handleException');
+        set_exception_handler(self::class . '::handleException');
     }
 
     /**

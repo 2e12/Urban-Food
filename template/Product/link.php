@@ -13,27 +13,28 @@ if ($permission == true) {
     <h1>Zutat mit Produkt verknüpfen</h1>
     <form method="POST" action="/Product/linkProdWIng" class="smallform">
         <select class="dropdown" name="product" required>';
-        foreach ($categories as $category) {
-            echo '<optgroup label="'.$category->name.'">';
-            foreach ($products as $product) {
-                if ($product->category_id == $category->id) {
-                    echo '<option value="'.$product->name.'">'.$product->name.'</option>';
-                }
+    foreach ($categories as $category) {
+        echo '<optgroup label="' . $category->name . '">';
+        foreach ($products as $product) {
+            if ($product->category_id == $category->id) {
+                echo '<option value="' . $product->name . '">' . $product->name . '</option>';
             }
-            echo '</optgroup>';
         }
-        echo '
+        echo '</optgroup>';
+    }
+    echo '
         </select>
         <select class="dropdown" name="ingredient" required>';
-        foreach ($ingredients as $ingredient) {
-            echo '<option value="'.$ingredient->name.'">'.$ingredient->name.'</option>';
-        }
-        echo '
+    foreach ($ingredients as $ingredient) {
+        echo '<option value="' . $ingredient->name . '">' . $ingredient->name . '</option>';
+    }
+    echo '
         </select>
         <div class="send"><input type="submit"></div>
     </form>
 </div>
 ';
-} else {
+}
+else {
     header('Location: /User/forbidden');
 }

@@ -12,7 +12,8 @@ class IngredientRepository extends Repository
      * Baut Verbindung zur Datenbank auf und fügt eine neue Zutat ein.
      * @param string $textName Der Name der Zutat
      */
-    public function insert(string $textName): void {
+    public function insert(string $textName): void
+    {
         $insertQuery = "INSERT INTO {$this->tableName} (`name`) VALUES (?)";
         $insertStatement = ConnectionHandler::getConnection()->prepare($insertQuery);
         $insertStatement->bind_param('s', $textName);
@@ -24,7 +25,8 @@ class IngredientRepository extends Repository
      * Baut Verbindung zur Datenbank auf und löscht eine Zutat anhand des Namens.
      * @param string $textName Der Name der Zutat
      */
-    public function deleteByName(string $textName): void {
+    public function deleteByName(string $textName): void
+    {
         $deleteQuery = "DELETE FROM {$this->tableName} WHERE `name`=?";
         $deleteStatement = ConnectionHandler::getConnection()->prepare($deleteQuery);
         $deleteStatement->bind_param('s', $textName);
@@ -37,7 +39,8 @@ class IngredientRepository extends Repository
      * @param string $textName Der Name der Zutat
      * @return mixed Die gefundenen Entitäten
      */
-    public function readByName(string $textName) {
+    public function readByName(string $textName)
+    {
         $selectQuery = "SELECT * FROM {$this->tableName} WHERE `name`=?";
         $selectStatement = ConnectionHandler::getConnection()->prepare($selectQuery);
         $selectStatement->bind_param('s', $textName);

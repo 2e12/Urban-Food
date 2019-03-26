@@ -11,7 +11,8 @@ class UserController
     /**
      * Überprüft ob der User eingeloggt ist und wenn ja, wird ein persönlicher Bereich geladen.
      */
-    public function index(): void {
+    public function index(): void
+    {
 
         if (isset($_SESSION['user'])) {
             $view = new View('User/index');
@@ -28,7 +29,8 @@ class UserController
     /**
      * Erstellt das Viewfile um den Usern Admin-Rechte zu gewähren.
      */
-    public function grant(): void {
+    public function grant(): void
+    {
         $view = new View('User/grant');
         $view->title = 'Grant';
         $view->display();
@@ -37,7 +39,8 @@ class UserController
     /**
      * Erstellt das Viewfile um neue User zu erstellen.
      */
-    public function create(): void {
+    public function create(): void
+    {
         $view = new View('User/create');
         $view->title = 'Create';
         $view->display();
@@ -47,8 +50,9 @@ class UserController
      * Ändert die Berechtigung des Users in der Datenbank.
      * @throws \Exception Exception in der MySQLi-Verbindung
      */
-    public function changePermissions(): void {
-        if (isset($_POST['useremail']) && isset($_POST['newPerm']) && !isset($_POST['delUser']) &&filter_var($_POST['useremail'], FILTER_VALIDATE_EMAIL)) {
+    public function changePermissions(): void
+    {
+        if (isset($_POST['useremail']) && isset($_POST['newPerm']) && !isset($_POST['delUser']) && filter_var($_POST['useremail'], FILTER_VALIDATE_EMAIL)) {
             $users = new UserRepository();
             $users->grantPerm(htmlspecialchars($_POST['useremail']), htmlspecialchars($_POST['newPerm']));
         }
@@ -65,7 +69,8 @@ class UserController
     /**
      * Erstellt das Viewfile um dem User mitzuteilen, dass er sich ausgeloggt hat.
      */
-    public function logout(): void {
+    public function logout(): void
+    {
         Authentication::logout();
         $view = new View('User/logout');
         $view->title = 'User';
@@ -75,7 +80,8 @@ class UserController
     /**
      * Erstellt das Viewfile um mitzuteilen, dass die Login-Informationen falsch sind.
      */
-    public function wronginformations() {
+    public function wronginformations()
+    {
         $view = new View('user/wronginformations');
         $view->title = 'Wrong Informations';
         $view->display();
@@ -84,7 +90,8 @@ class UserController
     /**
      * Erstellt das Viewfile um zu zeigen, dass der User kein Zugriff auf diesen Bereich hat.
      */
-    public function forbidden(): void {
+    public function forbidden(): void
+    {
         $view = new View('/User/forbidden');
         $view->title = 'Forbidden!';
         $view->display();

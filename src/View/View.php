@@ -1,14 +1,18 @@
 <?php
+
 namespace App\View;
-class View{
+class View
+{
     private $properties = array();
     private $viewFile;
 
-    public function __construct($viewFile) {
+    public function __construct($viewFile)
+    {
         $this->viewFile = "../template/" . $viewFile . ".php";
     }
 
-    public function display() : void {
+    public function display(): void
+    {
         require "../template/header.php";
         extract($this->properties);
 
@@ -20,12 +24,13 @@ class View{
 
     public function __set(string $key, $value): void
     {
-        if(!isset($this->properties[$key])){
+        if (!isset($this->properties[$key])) {
             $this->properties[$key] = $value;
         }
     }
 
-    public function __get(string $key) : object {
+    public function __get(string $key): object
+    {
         return $this->properties[$key];
     }
 }

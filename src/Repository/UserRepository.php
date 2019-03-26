@@ -10,7 +10,8 @@ class UserRepository extends Repository
 {
     protected $tableName = 'users';
 
-    public function readAllSortedByName(): array {
+    public function readAllSortedByName(): array
+    {
         $query = "SELECT * FROM {$this->tableName} ORDER BY lastname LIMIT 0, 100";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
@@ -134,12 +135,14 @@ class UserRepository extends Repository
      * @param string $userEmail Die Email-Adresse des betroffenen Users
      * @param string $perm Die neue Freigabe
      */
-    public function grantPerm(string $userEmail, string $perm): void {
+    public function grantPerm(string $userEmail, string $perm): void
+    {
         $user = $this->readByEmail($userEmail);
         if ($user != null) {
             if ($perm == 'true') {
                 $newPerm = 1;
-            } else {
+            }
+            else {
                 $newPerm = 0;
             }
             $grantQuery = "UPDATE users SET is_admin = ? WHERE id = ?";

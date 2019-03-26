@@ -1,8 +1,8 @@
 /**
  * Open and closes the menu
  */
-function toggleMenu(){
-    $( "#menu" ).toggle();
+function toggleMenu() {
+    $("#menu").toggle();
     $("#shoppingcart").hide();
 }
 
