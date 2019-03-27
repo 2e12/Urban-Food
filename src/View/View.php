@@ -8,7 +8,7 @@ class View
 
     public function __construct($viewFile)
     {
-        $this->viewFile = "../template/" . $viewFile . ".php";
+        $this->viewFile = "../template/" . ucfirst($viewFile) . ".php";
     }
 
     public function display() : void {
@@ -22,14 +22,14 @@ class View
         require "../template/footer.php";
     }
 
-    public function __set(string $key, $value): void
+    public function __set($key, $value)
     {
         if (!isset($this->properties[$key])) {
             $this->properties[$key] = $value;
         }
     }
 
-    public function __get(string $key): object
+    public function __get($key)
     {
         return $this->properties[$key];
     }
