@@ -10,7 +10,7 @@ class LoginController
     /**
      * Erstellt die View für das Login oder die Seite, welche angezeigt wird, wenn man bereits eingeloggt ist.
      */
-    public function index(): void
+    public function index()
     {
         if (isset($_SESSION['user'])) {
             $view = new View('User/loggedin');
@@ -27,7 +27,7 @@ class LoginController
     /**
      * Überprüft ob die Login-Informationen des Users in der Datenbank vorhanden sind.
      */
-    public function login(): void
+    public function login()
     {
         if (isset($_POST['emailadress']) && isset($_POST['password']) && filter_var($_POST['emailadress'], FILTER_VALIDATE_EMAIL)) {
             $loginstate = Authentication::login(htmlspecialchars($_POST['emailadress']), htmlspecialchars($_POST['password']));

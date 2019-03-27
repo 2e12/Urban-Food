@@ -13,7 +13,7 @@ class ProductController
     /**
      * Erstellt das Viewfile für den index.
      */
-    public function index(): void
+    public function index()
     {
         $view = new View('Product/index');
         $view->title = 'Products';
@@ -23,7 +23,7 @@ class ProductController
     /**
      * Erstellt das Viewfile für das Erstellen eines neuen Produkts.
      */
-    public function create(): void
+    public function create()
     {
         $view = new View('Product/create');
         $view->title = 'Create new product';
@@ -33,7 +33,7 @@ class ProductController
     /**
      * Erstellt das Viewfile für das Löschen eines Produkts.
      */
-    public function delete(): void
+    public function delete()
     {
         $view = new View('Product/delete');
         $view->title = 'Delete';
@@ -68,7 +68,7 @@ class ProductController
      * Löscht Produkt aus der Datenbank.
      * @throws \Exception Exception in der MySQLi-Verbindung
      */
-    public function del(): void
+    public function del()
     {
         $repo = new ProductRepository();
         $repo->deleteById($_GET['id']);
@@ -80,7 +80,7 @@ class ProductController
      * Gibt das neue Produkt an das Repo weiter, weist die richtige Kategorie zu
      * und speichert das im Formular hochgeladene File auf dem Server.
      */
-    public function createProduct(): void
+    public function createProduct()
     {
         $repository = new ProductRepository();
 
@@ -117,7 +117,7 @@ class ProductController
     /**
      * Gibt das Produkt anhand der Produkt Id aus.
      */
-    public function get(): void
+    public function get()
     {
         header('Content-Type: application/json');
         $repository = new ProductRepository();
@@ -142,7 +142,7 @@ class ProductController
     /**
      * Erstellt das Viewfile für das Verbinden von Produkten und Zuateten.
      */
-    public function link(): void
+    public function link()
     {
         $view = new View('Product/link');
         $view->title = 'Link';
@@ -152,7 +152,7 @@ class ProductController
     /**
      * Erstellt die neue Verbindung zwischen Produkt und Zutat in der Datenbank.
      */
-    public function linkProdWIng(): void
+    public function linkProdWIng()
     {
         $prodRepo = new ProductRepository();
         $ingRepo = new IngredientRepository();

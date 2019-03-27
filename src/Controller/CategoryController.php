@@ -13,7 +13,7 @@ class CategoryController
      * Das Viewfile von Category/index wird erstellt und das Repository wird geladen
      * @throws \Exception Exception in der MySQLi-Verbindung
      */
-    public function index(): void
+    public function index()
     {
         $repository = new CategoryRepository();
         $view = new View('Category/index');
@@ -27,7 +27,7 @@ class CategoryController
      * die Produkte werden anhand der Kategorie in die Applikation geladen.
      * @throws \Exception Exception in der MySQLi-Verbindung
      */
-    public function products(): void
+    public function products()
     {
         $category_id = false;
         $valid = false;

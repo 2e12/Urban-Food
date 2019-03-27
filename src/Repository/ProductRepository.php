@@ -51,7 +51,7 @@ class ProductRepository extends Repository
      * @param array $arrImage Die Bilddatei des Vorschaubildes des Produkts
      * @param string $textCatId Die Id der Kategorie der das Produkt angehört
      */
-    function insert(string $textName, $textPrice, string $textDesc, array $arrImage, string $textCatId): void
+    function insert(string $textName, $textPrice, string $textDesc, array $arrImage, string $textCatId)
     {
         $insertQuery = "INSERT INTO {$this->tableName} (`name`,price,description,image_path,category_id) VALUES (?,?,?,?,?)";
         $insertStatement = ConnectionHandler::getConnection()->prepare($insertQuery);

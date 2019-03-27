@@ -11,7 +11,7 @@ class UserController
     /**
      * Überprüft ob der User eingeloggt ist und wenn ja, wird ein persönlicher Bereich geladen.
      */
-    public function index(): void
+    public function index()
     {
 
         if (isset($_SESSION['user'])) {
@@ -29,7 +29,7 @@ class UserController
     /**
      * Erstellt das Viewfile um den Usern Admin-Rechte zu gewähren.
      */
-    public function grant(): void
+    public function grant()
     {
         $view = new View('User/grant');
         $view->title = 'Grant';
@@ -39,7 +39,7 @@ class UserController
     /**
      * Erstellt das Viewfile um neue User zu erstellen.
      */
-    public function create(): void
+    public function create()
     {
         $view = new View('User/create');
         $view->title = 'Create';
@@ -50,7 +50,7 @@ class UserController
      * Ändert die Berechtigung des Users in der Datenbank.
      * @throws \Exception Exception in der MySQLi-Verbindung
      */
-    public function changePermissions(): void
+    public function changePermissions()
     {
         if (isset($_POST['useremail']) && isset($_POST['newPerm']) && !isset($_POST['delUser']) && filter_var($_POST['useremail'], FILTER_VALIDATE_EMAIL)) {
             $users = new UserRepository();
@@ -69,7 +69,7 @@ class UserController
     /**
      * Erstellt das Viewfile um dem User mitzuteilen, dass er sich ausgeloggt hat.
      */
-    public function logout(): void
+    public function logout()
     {
         Authentication::logout();
         $view = new View('User/logout');
@@ -90,7 +90,7 @@ class UserController
     /**
      * Erstellt das Viewfile um zu zeigen, dass der User kein Zugriff auf diesen Bereich hat.
      */
-    public function forbidden(): void
+    public function forbidden()
     {
         $view = new View('/User/forbidden');
         $view->title = 'Forbidden!';

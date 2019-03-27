@@ -11,7 +11,7 @@ class StaticController
     /**
      * Macht es möglich statische HTML-Files zu laden, in welchen kein PhP gebraucht wurde.
      */
-    public function index(): void
+    public function index()
     {
         $fragments = explode("/", $_SERVER['REQUEST_URI']);
         $page = $fragments[2];

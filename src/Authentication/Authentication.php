@@ -56,7 +56,7 @@ class Authentication
      * Mit dieser Funktion kann ein User sich ausloggen und damit die Session
      * zurücksetzen und anschliessend löschen.
      */
-    public static function logout(): void
+    public static function logout()
     {
         // TODO: Mit unset die Session-Werte löschen
         unset($_SESSION);

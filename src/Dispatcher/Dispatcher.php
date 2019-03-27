@@ -28,7 +28,7 @@ class Dispatcher
      * Diese Methode wertet die Request URI aus leitet die Anfrage entsprechend
      * weiter.
      */
-    public static function dispatch(): void
+    public static function dispatch()
     {
         $controllerName = ucfirst(UriParser::getControllerName() . 'Controller');
         $className = 'App\\Controller\\' . $controllerName;

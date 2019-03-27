@@ -10,7 +10,7 @@ class IngredientController
     /**
      * Diese Funktion erstellt die View für das Erstellen einer neuen Zutat.
      */
-    public function create(): void
+    public function create()
     {
         $view = new View('Ingredient/create');
         $view->title = 'Create new ingredient';
@@ -20,7 +20,7 @@ class IngredientController
     /**
      * Die Funktion erstellt die Zutat in der Datenbank
      */
-    public function createIngredient(): void
+    public function createIngredient()
     {
         if (isset($_POST["ingredientName"])) {
             $repo = new IngredientRepository();
@@ -32,7 +32,7 @@ class IngredientController
     /**
      * Diese Funktion erstellt die View für das Löschen einer Zutat.
      */
-    public function delete(): void
+    public function delete()
     {
         $view = new View('Ingredient/delete');
         $view->title = 'Delete ingredient';
@@ -42,7 +42,7 @@ class IngredientController
     /**
      * Die Funktion löscht die Zutat in der Datenbank
      */
-    public function del(): void
+    public function del()
     {
         if (isset($_GET['name'])) {
             $repo = new IngredientRepository();

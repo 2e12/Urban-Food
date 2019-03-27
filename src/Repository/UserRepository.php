@@ -135,7 +135,7 @@ class UserRepository extends Repository
      * @param string $userEmail Die Email-Adresse des betroffenen Users
      * @param string $perm Die neue Freigabe
      */
-    public function grantPerm(string $userEmail, string $perm): void
+    public function grantPerm(string $userEmail, string $perm)
     {
         $user = $this->readByEmail($userEmail);
         if ($user != null) {

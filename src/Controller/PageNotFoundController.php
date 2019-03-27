@@ -9,7 +9,7 @@ class PageNotFoundController
     /**
      * Erstellt das View-File für den Error 404.
      */
-    public function index(): void
+    public function index()
     {
         header("HTTP/1.0 404 Not Found");
         $view = new View('PageNotFound/index');

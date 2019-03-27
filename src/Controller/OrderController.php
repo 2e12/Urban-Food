@@ -15,7 +15,7 @@ class OrderController
      * Gibt alle Bestellungen des aktuellen Users in ein bestimmtes Viewfile aus.
      * @throws \Exception Exception in der MySQLi-Verbindung
      */
-    public function index(): void
+    public function index()
     {
         if (isset($_SESSION["user"])) {
             $view = new View('Order/index');
@@ -29,7 +29,7 @@ class OrderController
     /**
      * Sendet die Bestellung in die Datenbank und leert den Warenkorb.
      */
-    public function buy(): void
+    public function buy()
     {
         if (isset($_SESSION["user"]) and isset($_SESSION["order"])) {
             //POST "Buy" is the submit button
@@ -64,7 +64,7 @@ class OrderController
      * Überprüft ob der User eingeloogt ist, da dies erfoderlich ist um zu Bestellen.
      * @throws \Exception Exception in der MySQLi-Verbindung
      */
-    public function checkout(): void
+    public function checkout()
     {
         if (isset($_SESSION["order"])) {
             $view = new View('Order/checkout');
@@ -88,7 +88,7 @@ class OrderController
      * passenden Rechnungen.
      * @throws \Exception Exception in der MySQLi-Verbindung
      */
-    public function show(): void
+    public function show()
     {
         $authenticated = false; //This Boolean indicates if an user can access an order.
         $order = null;
@@ -124,7 +124,7 @@ class OrderController
      * Validiert die Daten aus dem Warenkorb und leitet auf eine "Vielen Dank für den Einkauf"-Seite.
      * @throws \Exception Exception in der MySQLi-Verbindung
      */
-    public function check(): void
+    public function check()
     {
         $valid = false;
         $products = array();

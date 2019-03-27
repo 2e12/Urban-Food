@@ -10,7 +10,7 @@ class RegisterController
     /**
      * Erstellt das Viewfile für das Registrieren.
      */
-    public function index(): void
+    public function index()
     {
         $view = new View('Register/index');
         $view->title = 'Register';
@@ -20,7 +20,7 @@ class RegisterController
     /**
      * Legt einen neuen Benutzer in der Datenbank an.
      */
-    public function register(): void
+    public function register()
     {
         if (isset($_POST['emailadress']) && isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['city']) && isset($_POST['postalcode']) && isset($_POST['street']) && isset($_POST['password']) && isset($_POST['repeatedpassword'])) {
             if ($_POST['password'] == $_POST['repeatedpassword'] && filter_var($_POST['emailadress'], FILTER_VALIDATE_EMAIL) && preg_match("/^[1-9]\d{3}$/", $_POST['postalcode'])) {
