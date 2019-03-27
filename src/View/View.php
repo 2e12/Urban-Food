@@ -8,7 +8,7 @@ class View
 
     public function __construct($viewFile)
     {
-        $this->viewFile = "../template/" . $viewFile . ".php";
+        $this->viewFile = "../template/" . ucfirst($viewFile) . ".php";
     }
 
     public function display() : void {

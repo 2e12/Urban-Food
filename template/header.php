@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Urban Food<?php if(isset($title)){ echo " - " . $title; } ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://<?php echo $_SERVER["SERVER_NAME"] ?>/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed:300,400,500%7CIBM+Plex+Sans:300,400,500"
           rel="stylesheet">
     <meta name="theme-color" content="#57d319">

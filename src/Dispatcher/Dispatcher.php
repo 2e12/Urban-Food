@@ -30,7 +30,7 @@ class Dispatcher
      */
     public static function dispatch(): void
     {
-        $controllerName = usfirst(UriParser::getControllerName() . 'Controller');
+        $controllerName = ucfirst(UriParser::getControllerName() . 'Controller');
         $className = 'App\\Controller\\' . $controllerName;
         $methodName = UriParser::getMethodName();
 
