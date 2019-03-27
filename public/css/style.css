@@ -361,22 +361,6 @@ h1.floated {
     flex-direction: row;
 }
 
-@media screen and (max-width: 400px) {
-    .formlayout {
-        flex-direction: column;
-    }
-
-    .images {
-        margin-top: 20%;
-        width: 100%;
-    }
-
-    .formblock {
-        width: 100%;
-    }
-}
-
-
 #black_overlay {
     z-index: 10;
     left: 0;
@@ -574,34 +558,6 @@ h1.floated {
     }
 }
 
-@media screen and (max-width: 720px) {
-    .desktop {
-        display: none !important;
-    }
-
-    #product_overview {
-        flex-wrap: wrap;
-    }
-
-    #product_overview .row img {
-        border-radius: 20px;
-    }
-
-    #product_cart .line {
-        flex-wrap: wrap;
-        border-bottom: 2px solid rgba(0, 0, 0, 0.5);
-        padding-bottom: 10px;
-        margin-bottom: 10px;
-    }
-
-    #product_cart .line .pc_name {
-        width: 100%;
-        margin-bottom: 8px;
-        font-weight: 500;
-        font-size: 24px;
-    }
-}
-
 .formblock select {
     margin-bottom: 40px;
 }
@@ -710,28 +666,6 @@ select.dropdown {
     margin-bottom: 60px;
 }
 
-@media screen and (max-width: 400px) {
-    .row .profile {
-        width: 100%;
-        margin: 20px 0;
-        box-sizing: border-box;
-    }
-
-    .profiles .row {
-        flex-direction: column;
-        flex-wrap: wrap;
-    }
-
-    .profiles {
-        flex-wrap: wrap;
-    }
-
-    .texts {
-        width: 225px;
-        text-align: left;
-    }
-}
-
 .row .profile img {
     border-radius: 160px;
     border: white 5px solid;
@@ -766,4 +700,91 @@ select.dropdown {
 .mid {
     margin-left: 462px;
     margin-bottom: 50px;
+}
+
+@media screen and (max-width: 400px) {
+    .desktop {
+        display: none !important;
+    }
+
+    #product_overview {
+        flex-wrap: wrap;
+    }
+
+    #product_overview .row img {
+        border-radius: 20px;
+    }
+
+    #product_cart .line {
+        flex-wrap: wrap;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+
+    #product_cart .line .pc_name {
+        width: 100%;
+        margin-bottom: 8px;
+        font-weight: 500;
+        font-size: 24px;
+    }
+
+    .row .profile {
+        width: 100%;
+        margin: 20px 0;
+        box-sizing: border-box;
+    }
+
+    .profiles .row {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .profiles {
+        flex-wrap: wrap;
+    }
+
+    .texts {
+        width: 225px;
+        text-align: left;
+    }
+
+    .formlayout {
+        flex-direction: column;
+    }
+
+    .images {
+        margin-top: 20%;
+        width: 100%;
+    }
+
+    .formblock {
+        width: 100%;
+    }
+
+    .mid {
+        margin-left: 30%;
+    }
+
+    h1.title {
+        padding: 20px 0 0 0px;
+    }
+
+    .images {
+        display: none;
+    }
+
+    .users {
+        display: none;
+    }
+
+    .grant {
+        width: 80%;
+        position: absolute;
+    }
+
+    .content {
+        min-height: 350px;
+        padding-top: 0;
+    }
 }
