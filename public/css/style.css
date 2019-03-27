@@ -767,3 +767,31 @@ select.dropdown {
     margin-left: 462px;
     margin-bottom: 50px;
 }
+
+@media screen and (max-width: 400px) {
+    .mid {
+        margin-left: 30%;
+    }
+
+    h1.floated {
+        padding: 20px 0 0 0;
+    }
+
+    .images {
+        display: none;
+    }
+
+    .users {
+        display: none;
+    }
+
+    .grant {
+        width: 80%;
+        position: absolute;
+    }
+
+    .content {
+        min-height: 350px;
+        padding-top: 0;
+    }
+}
