@@ -11,7 +11,8 @@ class View
         $this->viewFile = "../template/" . ucfirst($viewFile) . ".php";
     }
 
-    public function display() : void {
+    public function display()
+    {
 
         extract($this->properties);
         require "../template/header.php";
