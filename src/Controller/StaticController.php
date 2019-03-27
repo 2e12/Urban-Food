@@ -20,6 +20,7 @@ class StaticController
             if (file_exists($pagePath)) {
                 $view = new View("Static/index");
                 $content = file_get_contents($pagePath);
+                $view->title = ucfirst($page);
                 $view->content = $content;
                 $view->display();
             }

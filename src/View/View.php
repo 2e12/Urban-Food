@@ -9,8 +9,9 @@ class View{
     }
 
     public function display() : void {
-        require "../template/header.php";
+
         extract($this->properties);
+        require "../template/header.php";
 
         require $this->viewFile;
 

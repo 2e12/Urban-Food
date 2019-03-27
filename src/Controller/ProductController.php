@@ -52,7 +52,7 @@ class ProductController
             $view->product = $product;
             $ingredients = $ingredientRepository->readByProductId($_GET["id"]);
             $view->ingredients = $ingredients;
-            $view->title = "Zutaten";
+            $view->title = "Zutaten " . $product->name;
             if ($product and $ingredients) {
                 $view->display();
             }

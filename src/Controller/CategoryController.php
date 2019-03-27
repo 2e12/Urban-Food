@@ -18,6 +18,7 @@ class CategoryController
         $repository = new CategoryRepository();
         $view = new View('Category/index');
         $view->categories = $repository->readAll();
+        $view->title = "Kategorien";
         $view->display();
     }
 
@@ -46,6 +47,7 @@ class CategoryController
         if ($category) {
             $view = new View('Category/product');
             $view->category = $category->name;
+            $view->title = $category->name;
             $view->image = $category->image_path;
             $view->products = $productRepository->readByCategoryId($category_id);
             $view->display();
