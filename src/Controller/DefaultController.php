@@ -36,7 +36,8 @@ class DefaultController
      * welcher Controller und welche Methode aufgerufen wird, ist im Dispatcher
      * beschrieben.
      */
-    public function index() : void {
+    public function index(): void
+    {
         $view = new View('default/index');
         $view->title = 'Home';
 

@@ -70,17 +70,19 @@ class Authentication
      * @param $textEmail Die Email-Adresse des aktiven Users
      * @return bool Der Wert sagt aus, ob der User nun ein Admin ist oder nicht
      */
-    public static function isAdmin($textEmail): bool {
+    public static function isAdmin($textEmail): bool
+    {
         $users = new UserRepository();
         $user = $users->readByEmail($textEmail);
 
-        if ($user != null)
-        {
+        if ($user != null) {
             if ($user->is_admin == 0) {
                 return false;
-            } elseif ($user->is_admin == 1) {
+            }
+            elseif ($user->is_admin == 1) {
                 return true;
-            } else {
+            }
+            else {
                 return false;
             }
         }
@@ -93,10 +95,10 @@ class Authentication
     public static function isAuthenticated(): bool
     {
         // TODO: Zurückgeben ob eine ID in der Session gespeichert wurde (true/false)
-        if ($_SESSION['user'] == null)
-        {
+        if ($_SESSION['user'] == null) {
             return false;
-        } else {
+        }
+        else {
             return true;
         }
     }

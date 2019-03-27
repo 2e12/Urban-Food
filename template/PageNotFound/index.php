@@ -1,2 +1,2 @@
 <?php
-echo '<div class="content"><h1>Error 404</h1><br><h2>Page not found</h2><br><img src="http://' . $_SERVER["SERVER_NAME"] . '/img/PageNotFoundSmiley.png" alt="error404"></div>';
+echo '<div class="content"><h1>Error 404</h1><br><h2>Page not found</h2><br><div class="error"><img src="http://' . $_SERVER["SERVER_NAME"] . '/img/PageNotFoundSmiley.png" alt="error404"></div></div>';

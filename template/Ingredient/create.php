@@ -11,6 +11,7 @@ if ($permission == true) {
     </form>
 </div>
 ';
-} else {
+}
+else {
     header('Location: /User/forbidden');
 }

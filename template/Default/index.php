@@ -31,4 +31,5 @@
             <div class="top">Drinks</div>
         </div>
     </a>
+    <a class="linkbutton mid" href="/category/index">Weitere Kategorien</a>
 </div>

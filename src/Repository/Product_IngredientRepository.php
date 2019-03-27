@@ -39,7 +39,8 @@ class Product_IngredientRepository extends Repository
      * @param int $prodId Die Id des zu verbindenden Produkts
      * @param int $ingId Die Id der zu verbindenden Zutat
      */
-    public function insert(int $prodId, int $ingId): void {
+    public function insert(int $prodId, int $ingId): void
+    {
         $insertQuery = "INSERT INTO {$this->tableName} (product_id,ingredient_id) VALUES (?,?)";
         $insertStatement = ConnectionHandler::getConnection()->prepare($insertQuery);
         $insertStatement->bind_param('ii', $prodId, $ingId);

@@ -51,7 +51,8 @@ class ProductRepository extends Repository
      * @param array $arrImage Die Bilddatei des Vorschaubildes des Produkts
      * @param string $textCatId Die Id der Kategorie der das Produkt angehört
      */
-    function insert(string $textName, $textPrice, string $textDesc, array $arrImage, string $textCatId): void {
+    function insert(string $textName, $textPrice, string $textDesc, array $arrImage, string $textCatId): void
+    {
         $insertQuery = "INSERT INTO {$this->tableName} (`name`,price,description,image_path,category_id) VALUES (?,?,?,?,?)";
         $insertStatement = ConnectionHandler::getConnection()->prepare($insertQuery);
         $price = doubleval($textPrice);
@@ -79,8 +80,8 @@ class ProductRepository extends Repository
                 break;
         }
         $cId = intval($textCatId);
-        $dbPrefix = '/img/upload/'.$catName;
-        $path = $dbPrefix.$arrImage['name'];
+        $dbPrefix = '/img/upload/' . $catName;
+        $path = $dbPrefix . $arrImage['name'];
         $insertStatement->bind_param('sdssi', $textName, $price, $textDesc, $path, $cId);
         $insertStatement->execute();
         $insertStatement->close();
@@ -91,7 +92,8 @@ class ProductRepository extends Repository
      * @param string $textName Name des Produkts
      * @return mixed Die Suchergebnisse
      */
-    public function readByName(string $textName) {
+    public function readByName(string $textName)
+    {
         $selectQuery = "SELECT * FROM {$this->tableName} WHERE `name`=?";
         $selectStatement = ConnectionHandler::getConnection()->prepare($selectQuery);
         $selectStatement->bind_param('s', $textName);

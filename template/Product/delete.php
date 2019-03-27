@@ -12,19 +12,20 @@ if ($permission == true) {
                 <td>Produkt</td>
                 <td>Preis</td>
             </tr>';
-        foreach ($products as $product) {
-            echo '
+    foreach ($products as $product) {
+        echo '
                     <tr>
-                        <td>'.$product->name.'</td>
-                        <td>'.$product->price.'</td>
-                        <td><a href="/Product/del?id='.$product->id.'"><i class="fas fa-ban"></i></a></td>
+                        <td>' . $product->name . '</td>
+                        <td>' . $product->price . '</td>
+                        <td><a href="/Product/del?id=' . $product->id . '"><i class="fas fa-ban"></i></a></td>
                     </tr>
                 ';
-        }
-        echo '    
+    }
+    echo '    
         </table>
         </div>
     </div>';
-} else {
+}
+else {
     header('Location: /User/forbidden');
 }

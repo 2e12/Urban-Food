@@ -28,10 +28,10 @@ class Dispatcher
      * Diese Methode wertet die Request URI aus leitet die Anfrage entsprechend
      * weiter.
      */
-    public static function dispatch() : void
+    public static function dispatch(): void
     {
-        $controllerName = UriParser::getControllerName().'Controller';
-        $className = 'App\\Controller\\'.$controllerName;
+        $controllerName = UriParser::getControllerName() . 'Controller';
+        $className = 'App\\Controller\\' . $controllerName;
         $methodName = UriParser::getMethodName();
 
         // Eine neue Instanz des Controllers wird erstellt und die gewünschte

@@ -14,8 +14,8 @@ if ($permission == true) {
     foreach ($ingredients as $ingredient) {
         echo '
                     <tr>
-                        <td>'.$ingredient->name.'</td>
-                        <td><a href="/Ingredient/del?name='.$ingredient->name.'"><i class="fas fa-ban"></i></a></td>
+                        <td>' . $ingredient->name . '</td>
+                        <td><a href="/Ingredient/del?name=' . $ingredient->name . '"><i class="fas fa-ban"></i></a></td>
                     </tr>
                 ';
     }
@@ -23,6 +23,7 @@ if ($permission == true) {
         </table>
         </div>
     </div>';
-} else {
+}
+else {
     header('Location: /User/forbidden');
 }

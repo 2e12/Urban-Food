@@ -4,7 +4,8 @@
     if (isset($_SESSION["user"])) {
         ?>
         <h2>Bestellung</h2>
-        <p>Überprüfen Sie Ihre Bestellung, bevor Sie sie tätigen. Merken Sie Informationen über mögliche Allergien im Feld
+        <p>Überprüfen Sie Ihre Bestellung, bevor Sie sie tätigen. Merken Sie Informationen über mögliche Allergien im
+            Feld
             "Allergien" oder "Kommentar" an.</p>
         <p>Zahlung wird direkt vor Ort vorgenommen.</p>
 

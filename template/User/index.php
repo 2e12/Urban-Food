@@ -2,8 +2,8 @@
 $firstname = \App\Authentication\Authentication::getAuthenticatedUser()->prename;
 $permissions = \App\Authentication\Authentication::getAuthenticatedUser()->is_admin;
 
-echo  '<div class="content">
-      <h1>Hallo '. $firstname .'</h1><br>
+echo '<div class="content">
+      <h1>Hallo ' . $firstname . '</h1><br>
       <p>Was möchtest du tun?</p><br>
       <a class="linkbutton" href="/User/logout">abmelden</a><br>';
 

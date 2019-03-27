@@ -1,7 +1,7 @@
 <?php
 $permission = \App\Authentication\Authentication::getAuthenticatedUser()->is_admin;
 $users = new \App\Repository\UserRepository();
-$arrUsers = $users->readAll();
+$arrUsers = $users->readAllSortedByName();
 if ($permission == true) {
     echo '<div class="content">
         <div class="grant">
@@ -22,18 +22,19 @@ if ($permission == true) {
                     <td>Adminberechtigungen</td>
                 </tr>
                 ';
-                foreach ($arrUsers as $user) {
-                    echo '<tr>
-                            <td>'.$user->email.'</td>
-                            <td>'.$user->prename.'</td>
-                            <td>'.$user->lastname.'</td>
-                            <td>'.$user->is_admin.'</td>
+    foreach ($arrUsers as $user) {
+        echo '<tr>
+                            <td>' . $user->email . '</td>
+                            <td>' . $user->prename . '</td>
+                            <td>' . $user->lastname . '</td>
+                            <td>' . $user->is_admin . '</td>
                           </tr>';
-                }
-                echo '
+    }
+    echo '
             </table>
         </div>
         </div>';
-} else {
+}
+else {
     header('Location: /User/forbidden');
 }

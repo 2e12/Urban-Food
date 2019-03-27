@@ -168,6 +168,7 @@ h2, h3, p {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
 p {
     font-family: 'IBM Plex Sans', sans-serif;
 }
@@ -271,11 +272,13 @@ p {
 .product:hover, .category:hover {
     bottom: 6px;
 }
+
 h1.floated {
     width: 100%;
     margin: 0;
     padding: 40px 40px 20px;
 }
+
 .formblock {
     display: inline-block;
     width: 50%;
@@ -358,7 +361,7 @@ h1.floated {
     flex-direction: row;
 }
 
-@media screen and (max-width: 400px){
+@media screen and (max-width: 400px) {
     .formlayout {
         flex-direction: column;
     }
@@ -372,7 +375,6 @@ h1.floated {
         width: 100%;
     }
 }
-
 
 
 #black_overlay {
@@ -453,6 +455,7 @@ h1.floated {
     cursor: pointer;
     box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.2);
 }
+
 #product_overview .row {
     flex-grow: 1;
     width: 100%;
@@ -485,6 +488,7 @@ h1.floated {
     color: inherit;
     text-decoration: none;
 }
+
 #product_overview #pv_name {
     font-weight: bold;
     font-size: 24px;
@@ -559,6 +563,7 @@ h1.floated {
 .content .linkbutton {
     box-shadow: none;
 }
+
 @keyframes rotate {
     from {
         transform: rotate(0deg);
@@ -644,7 +649,8 @@ select.dropdown {
 .front .product {
     /*border-radius: 10px 0 0 10px;*/
 }
-.linkbutton.back a{
+
+.linkbutton.back a {
     color: white;
     text-decoration: none;
 }
@@ -704,7 +710,7 @@ select.dropdown {
     margin-bottom: 60px;
 }
 
-@media screen and (max-width: 400px){
+@media screen and (max-width: 400px) {
     .row .profile {
         width: 100%;
         margin: 20px 0;
@@ -715,7 +721,8 @@ select.dropdown {
         flex-direction: column;
         flex-wrap: wrap;
     }
-    .profiles{
+
+    .profiles {
         flex-wrap: wrap;
     }
 
@@ -749,4 +756,14 @@ select.dropdown {
 .mapFrame {
     width: 720px;
     height: 600px;
+}
+
+.error {
+    margin: 0 calc(100% / 5 * 2);
+    width: calc(100% / 5);
+}
+
+.mid {
+    margin-left: 462px;
+    margin-bottom: 50px;
 }

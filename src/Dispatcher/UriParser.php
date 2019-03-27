@@ -7,15 +7,15 @@ class UriParser
     /**
      * Diese Methode wertet die Request URI aus und gibt den Controllername zurück.
      */
-    public static function getControllerName() : string
+    public static function getControllerName(): string
     {
-		$uriFragments = self::getUriFragments();
-		// TODO: Methode um den "Controller"-Teil der URI zurückzugeben
+        $uriFragments = self::getUriFragments();
+        // TODO: Methode um den "Controller"-Teil der URI zurückzugeben
         // http://my-project.local/default/index    ->      "Default"
         // http://my-project.local/user/create      ->      "User"
         // http://my-project.local                  ->      "Default"
 
-        if (isset($uriFragments[0]) && class_exists( 'App\\Controller\\' . ucfirst($uriFragments[0]) .'Controller')) {
+        if (isset($uriFragments[0]) && class_exists('App\\Controller\\' . ucfirst($uriFragments[0]) . 'Controller')) {
             return ucfirst($uriFragments[0]);
         }
         elseif (empty($uriFragments[0])) {
@@ -29,10 +29,10 @@ class UriParser
     /**
      * Diese Methode wertet die Request URI aus und gibt den Actionname (Action = Methode im Controller) zurück.
      */
-    public static function getMethodName() : string
+    public static function getMethodName(): string
     {
-		$uriFragments = self::getUriFragments();
-		// TODO: Methode um den "Action"-Teil der URI zurückzugeben
+        $uriFragments = self::getUriFragments();
+        // TODO: Methode um den "Action"-Teil der URI zurückzugeben
         // http://my-project.local/default/index    ->      "index"
         // http://my-project.local/user/create      ->      "create"
         // http://my-project.local                  ->      "index"
@@ -53,7 +53,7 @@ class UriParser
     /**Gibt den Namen des Controllers und der Methode zurück.
      * @return array Controllername und Funktionname
      */
-    private static function getUriFragments() : array
+    private static function getUriFragments(): array
     {
         // Die URI wird aus dem $_SERVER Array ausgelesen und in ihre
         // Einzelteile zerlegt.
