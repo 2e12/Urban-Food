@@ -10,6 +10,10 @@ class UserRepository extends Repository
 {
     protected $tableName = 'users';
 
+    /**
+     * Gibt alle Nutzer sortiert nach Name zurück
+     * @return array Liste von Nutzern
+     */
     public function readAllSortedByName(): array
     {
         $query = "SELECT * FROM {$this->tableName} ORDER BY lastname LIMIT 0, 100";
