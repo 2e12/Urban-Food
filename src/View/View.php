@@ -6,11 +6,18 @@ class View
     private $properties = array();
     private $viewFile;
 
+    /**
+     * View constructor.
+     * @param $viewFile View file
+     */
     public function __construct($viewFile)
     {
         $this->viewFile = "../template/" . ucfirst($viewFile) . ".php";
     }
 
+    /**
+     * Lädt die verschiedenen HTML Dateien zusammen und zeigt sie an
+     */
     public function display()
     {
 
@@ -23,6 +30,11 @@ class View
         require "../template/footer.php";
     }
 
+    /**
+     * Setzt ein Wert auf eine Veriable
+     * @param $key Der index
+     * @param $value Der Inhalt
+     */
     public function __set($key, $value)
     {
         if (!isset($this->properties[$key])) {
@@ -30,6 +42,11 @@ class View
         }
     }
 
+    /**
+     * Ruft einen Wert ab
+     * @param $key Variabel index
+     * @return mixed
+     */
     public function __get($key)
     {
         return $this->properties[$key];
