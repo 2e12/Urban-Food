@@ -786,4 +786,8 @@ select.dropdown {
     .content {
         min-height: 350px;
     }
+
+    h1.floated {
+        padding: 0;
+    }
 }
