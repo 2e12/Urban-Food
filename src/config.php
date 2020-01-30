@@ -1,2 +1,7 @@
 <?php
-return array("database" => array("host" => "localhost", "username" => "bbeutgsql1", "password" => "mjk4QE6a", "database" => "bbeutgsql1"));
+return array(
+	"database" => array(
+		"host" => getenv("DB_SERVER"), 
+		"username" => getenv("DB_USER"), 
+		"password" => getenv("DB_PASSWORD"), 
+		"database" => getenv("DB_NAME")));
